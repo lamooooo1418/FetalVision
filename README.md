@@ -1,2 +1,2 @@
 # FetalVision
-Fetal Ultrasound mage analysis using deep learning for detection and classification 
+Fetal Ultrasound image analysis using deep learning for detection and classification 
