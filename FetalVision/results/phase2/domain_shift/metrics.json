@@ -1,0 +1,48 @@
+{
+  "run_name": "domain_shift_hc18",
+  "phase": "phase2",
+  "split_evaluated": "test",
+  "input_resolution": [
+    224,
+    224
+  ],
+  "n_images": 154,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T22:20:46+00:00",
+  "metrics": {
+    "classifier_run": "p1v2-mnv3s-partial-ft-e40",
+    "temperature": 0.8269710796223418,
+    "n_images": 154,
+    "predicted_class_counts": {
+      "Abdomen": 1,
+      "Brain": 140,
+      "Femur": 4,
+      "Thorax": 9
+    },
+    "share_routed_brain": 0.9090909090909091,
+    "share_routed_brain_or_flagged_review": 0.9155844155844156,
+    "mean_p_brain": 0.901958942008484,
+    "median_p_brain": 0.9999861644339618,
+    "share_confidence_below_review_threshold": 0.012987012987012988,
+    "review_threshold": 0.6,
+    "routed_brain_by_hc_tertile": {
+      "small": {
+        "n": 51,
+        "routed_brain": 37,
+        "share": 0.7254901960784313
+      },
+      "medium": {
+        "n": 51,
+        "routed_brain": 51,
+        "share": 1.0
+      },
+      "large": {
+        "n": 52,
+        "routed_brain": 52,
+        "share": 1.0
+      }
+    },
+    "note": "HC18 images are all trans-thalamic brain planes; any non-Brain prediction is a routing miss caused by domain shift (different centre, machines, presets, field of view) between FETAL_PLANES_DB and HC18."
+  }
+}

@@ -1,0 +1,48 @@
+seed: 42
+run_name: integration_service
+models_dir: models
+classifier:
+  onnx: models/plane_classifier.onnx
+  meta: models/plane_classifier.json
+  input_size:
+  - 224
+  - 224
+  temperature: null
+  model_selection_json: results/phase1/model_selection.json
+  calibration_json_template: results/phase1/{run}/calibration.json
+detector:
+  onnx: models/head_detector.onnx
+  meta: models/head_detector.json
+  imgsz: 640
+  conf: null
+  iou: null
+  operating_point_json: results/phase2/detection/operating_point.json
+  max_det: 10
+  class_filter: null
+segmenter:
+  onnx: models/head_segmenter.onnx
+  meta: models/head_segmenter_onnx.json
+  input_size:
+  - 512
+  - 352
+  crop_margin: 0.1
+  mask_threshold: 0.5
+  normalize: imagenet
+  min_mask_area_px: 50
+gating:
+  head_class: Brain
+  min_probability: 0.0
+runtime:
+  providers:
+  - CPUExecutionProvider
+  intra_op_num_threads: 0
+  inter_op_num_threads: 0
+  graph_optimization_level: all
+service:
+  host: 0.0.0.0
+  port: 8000
+  workers: 1
+  warmup: true
+  max_upload_mb: 25
+  latency_window: 1000
+manifest_out: results/phase2/export/manifest.json

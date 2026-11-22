@@ -1,0 +1,1 @@
+demo_video.mp4: 30 TEST-split HC18 still frames at 3 fps (10 s), 800x540 px. This is a SYNTHETIC sequence assembled from independent still images (HC18 contains no video); boxes and scores come from the YOLO11n fetal-head detector at the operating point (imgsz 640, conf >= 0.85, NMS IoU 0.3). Green = prediction; no ground truth is drawn. Seed 42.

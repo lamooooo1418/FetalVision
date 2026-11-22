@@ -1,0 +1,43 @@
+# ONNX export + parity configuration (fetalvision.export.*). Stand-in sources are used until the real models exist.
+seed: 42
+opset: 17
+models_dir: ${FETALVISION_MODELS:-models}
+
+classifier:
+  # Real model: models/<selected_run>.keras where selected_run comes from results/phase1/model_selection.json.
+  model_selection_json: results/phase1/model_selection.json
+  keras_template: ${FETALVISION_MODELS:-models}/{run}.keras
+  calibration_json_template: results/phase1/{run}/calibration.json
+  stand_in_keras: ${FETALVISION_KERAS_STANDIN:-/workspace/best_mobilenetv3_finetuned.keras}
+  out_onnx: ${FETALVISION_MODELS:-models}/plane_classifier.onnx
+  out_meta: ${FETALVISION_MODELS:-models}/plane_classifier.json
+  input_size: [224, 224]
+
+detector:
+  weights: ${FETALVISION_MODELS:-models}/head_detector.pt
+  stand_in_weights: ${FETALVISION_MODELS:-models}/standins/yolo11n.pt   # downloaded on the fly by ultralytics when missing
+  imgsz: 640
+  out_onnx: ${FETALVISION_MODELS:-models}/head_detector.onnx
+  out_meta: ${FETALVISION_MODELS:-models}/head_detector.json
+  operating_point_json: results/phase2/detection/operating_point.json
+
+segmenter:
+  weights: ${FETALVISION_MODELS:-models}/head_segmenter.pt
+  meta: ${FETALVISION_MODELS:-models}/head_segmenter.json
+  stand_in_weights: ${FETALVISION_MODELS:-models}/standins/head_segmenter_standin.pt
+  stand_in_encoder: mobilenet_v2
+  input_size: [512, 352]        # (W, H)
+  out_onnx: ${FETALVISION_MODELS:-models}/head_segmenter.onnx
+  out_meta: ${FETALVISION_MODELS:-models}/head_segmenter_onnx.json   # head_segmenter.json is the training workstream's file (source meta)
+
+parity:
+  images_dir: ${FETALVISION_DATA}/hc18/raw/parity_samples          # falls back to hc18/raw/training_set
+  n_real: 32
+  n_noise: 16
+  out_dir: results/phase2/export
+  tolerances:
+    classifier_max_abs_diff: 1.0e-4
+    detector_min_box_iou: 0.99
+    detector_max_score_diff: 1.0e-3
+    segmenter_min_dice: 0.999
+  detector_parity_conf: null     # null -> operating point; stand-in yolo11n needs a low value (e.g. 0.001) to produce boxes on ultrasound

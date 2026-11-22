@@ -1,0 +1,351 @@
+{
+  "run_name": "p1v2-mnv3s-frozen",
+  "phase": "phase1",
+  "split_evaluated": "test",
+  "input_resolution": [
+    224,
+    224
+  ],
+  "n_images": 914,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T18:40:52+00:00",
+  "metrics": {
+    "accuracy": 0.9288840262582057,
+    "n_correct": 849,
+    "n_errors": 65,
+    "accuracy_ci95_wilson": [
+      0.910364838562729,
+      0.9438131814706405
+    ],
+    "macro_f1": 0.8970163673786067,
+    "weighted_f1": 0.9277975369557228,
+    "top2_accuracy": 0.9792122538293216,
+    "log_loss": 0.19091476592764245,
+    "ece_10bins": 0.02199902703386435,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "count": 1,
+        "accuracy": 0.0,
+        "confidence": 0.2986551821231842
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "count": 4,
+        "accuracy": 0.5,
+        "confidence": 0.36785271018743515
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "count": 20,
+        "accuracy": 0.4,
+        "confidence": 0.45549758821725844
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "count": 30,
+        "accuracy": 0.3333333333333333,
+        "confidence": 0.5425026694933573
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "count": 26,
+        "accuracy": 0.6923076923076923,
+        "confidence": 0.6605807290627406
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "count": 41,
+        "accuracy": 0.7317073170731707,
+        "confidence": 0.7539001688724611
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "count": 69,
+        "accuracy": 0.927536231884058,
+        "confidence": 0.8544821194980455
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "count": 723,
+        "accuracy": 0.991701244813278,
+        "confidence": 0.9846206185398919
+      }
+    ],
+    "per_class": {
+      "Abdomen": {
+        "precision": 0.8222222222222222,
+        "recall": 0.7474747474747475,
+        "f1": 0.783068783068783,
+        "support": 99
+      },
+      "Brain": {
+        "precision": 0.9545454545454546,
+        "recall": 0.9821826280623608,
+        "f1": 0.9681668496158068,
+        "support": 449
+      },
+      "Femur": {
+        "precision": 0.8903225806451613,
+        "recall": 0.9583333333333334,
+        "f1": 0.9230769230769231,
+        "support": 144
+      },
+      "Thorax": {
+        "precision": 0.9468599033816425,
+        "recall": 0.8828828828828829,
+        "f1": 0.9137529137529138,
+        "support": 222
+      }
+    },
+    "confusion_matrix": [
+      [
+        74,
+        10,
+        7,
+        8
+      ],
+      [
+        1,
+        441,
+        5,
+        2
+      ],
+      [
+        0,
+        5,
+        138,
+        1
+      ],
+      [
+        15,
+        6,
+        5,
+        196
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "Abdomen",
+      "Brain",
+      "Femur",
+      "Thorax"
+    ],
+    "confusion_pairs": {
+      "Abdomen->Brain": 10,
+      "Abdomen->Femur": 7,
+      "Abdomen->Thorax": 8,
+      "Brain->Abdomen": 1,
+      "Brain->Femur": 5,
+      "Brain->Thorax": 2,
+      "Femur->Brain": 5,
+      "Femur->Thorax": 1,
+      "Thorax->Abdomen": 15,
+      "Thorax->Brain": 6,
+      "Thorax->Femur": 5
+    },
+    "inference_seconds_total": 4.761625289916992,
+    "inference_ms_per_image": 5.209655678246162
+  },
+  "training": {
+    "stages": [
+      {
+        "stage": "stage1_head",
+        "epochs_run": 15,
+        "best_epoch": 14,
+        "best_val_loss": 0.17858172953128815,
+        "best_val_accuracy": 0.9362162351608276,
+        "lr": 0.001,
+        "max_epochs": 15,
+        "early_stopping_patience": 4,
+        "wall_clock_seconds": 140.20013403892517
+      }
+    ],
+    "wall_clock_seconds": 141.6603808403015,
+    "class_weight": null,
+    "params": {
+      "trainable": 2308,
+      "non_trainable": 939120,
+      "total": 941428
+    },
+    "trainable_backbone_layers_stage2": 0,
+    "checkpoint_rule": "epoch with lowest validation loss (ModelCheckpoint save_best_only, EarlyStopping restore_best_weights)"
+  },
+  "hardware": {
+    "platform": "macOS-15.3.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "tensorflow": "2.21.0",
+    "gpus": [],
+    "device": "CPU",
+    "keras": "3.15.1",
+    "cpu": "Apple M4 Pro"
+  },
+  "model_path": "/workspace/FetalVision/models/p1v2-mnv3s-frozen.keras",
+  "debug": false,
+  "data_dir": "/workspace/data/fetal_planes/processed/group_shuffle",
+  "augmentation": {
+    "enabled": true,
+    "rotation": 0.014,
+    "zoom": 0.05,
+    "translation": 0.05,
+    "contrast": 0.1,
+    "fill_mode": "reflect"
+  },
+  "selection_split": "val",
+  "val_metrics": {
+    "accuracy": 0.9362162162162162,
+    "n_correct": 866,
+    "n_errors": 59,
+    "accuracy_ci95_wilson": [
+      0.9185936979702763,
+      0.950230569439804
+    ],
+    "macro_f1": 0.9036734483734794,
+    "weighted_f1": 0.935589157765344,
+    "top2_accuracy": 0.9783783783783784,
+    "log_loss": 0.178581716657002,
+    "ece_10bins": 0.022871266152407657,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "count": 3,
+        "accuracy": 0.6666666666666666,
+        "confidence": 0.2926338215668996
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "count": 6,
+        "accuracy": 0.3333333333333333,
+        "confidence": 0.37483225762844086
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "count": 25,
+        "accuracy": 0.48,
+        "confidence": 0.4551907503604889
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "count": 30,
+        "accuracy": 0.7,
+        "confidence": 0.5449595272541046
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "count": 32,
+        "accuracy": 0.5625,
+        "confidence": 0.6517973281443119
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "count": 39,
+        "accuracy": 0.7948717948717948,
+        "confidence": 0.7529808817765652
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "count": 66,
+        "accuracy": 0.8787878787878788,
+        "confidence": 0.8631312214966976
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "count": 724,
+        "accuracy": 0.9972375690607734,
+        "confidence": 0.9848221212790157
+      }
+    ],
+    "per_class": {
+      "Abdomen": {
+        "precision": 0.7835051546391752,
+        "recall": 0.7916666666666666,
+        "f1": 0.7875647668393783,
+        "support": 96
+      },
+      "Brain": {
+        "precision": 0.9674620390455532,
+        "recall": 0.9911111111111112,
+        "f1": 0.9791437980241493,
+        "support": 450
+      },
+      "Femur": {
+        "precision": 0.9147727272727273,
+        "recall": 0.9757575757575757,
+        "f1": 0.9442815249266863,
+        "support": 165
+      },
+      "Thorax": {
+        "precision": 0.9581151832460733,
+        "recall": 0.8551401869158879,
+        "f1": 0.9037037037037037,
+        "support": 214
+      }
+    },
+    "confusion_matrix": [
+      [
+        76,
+        10,
+        4,
+        6
+      ],
+      [
+        2,
+        446,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        161,
+        1
+      ],
+      [
+        18,
+        3,
+        10,
+        183
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "Abdomen",
+      "Brain",
+      "Femur",
+      "Thorax"
+    ],
+    "confusion_pairs": {
+      "Abdomen->Brain": 10,
+      "Abdomen->Femur": 4,
+      "Abdomen->Thorax": 6,
+      "Brain->Abdomen": 2,
+      "Brain->Femur": 1,
+      "Brain->Thorax": 1,
+      "Femur->Abdomen": 1,
+      "Femur->Brain": 2,
+      "Femur->Thorax": 1,
+      "Thorax->Abdomen": 18,
+      "Thorax->Brain": 3,
+      "Thorax->Femur": 10
+    },
+    "inference_seconds_total": 4.373821973800659,
+    "inference_ms_per_image": 4.728456187892604
+  },
+  "note": "Model/checkpoint selection used the validation split only; the test split was evaluated once."
+}

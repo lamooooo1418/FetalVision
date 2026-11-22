@@ -1,0 +1,53 @@
+# FetalVision integrated pipeline / HTTP service configuration (single source of truth for M8).
+# Paths are relative to the repository root unless absolute. ${ENV} is expanded by fetalvision.common.config.
+seed: 42
+run_name: integration_service
+
+models_dir: ${FETALVISION_MODELS:-models}
+
+classifier:
+  onnx: ${FETALVISION_MODELS:-models}/plane_classifier.onnx
+  meta: ${FETALVISION_MODELS:-models}/plane_classifier.json        # written by export_classifier (class_names, temperature, ...)
+  input_size: [224, 224]                                            # (H, W); overridden by meta.input_size when present
+  temperature: null                                                 # null -> meta.temperature -> calibration.json -> 1.0
+  model_selection_json: results/phase1/model_selection.json         # {"selected_run": "<run>"} (classification workstream)
+  calibration_json_template: results/phase1/{run}/calibration.json  # {"temperature": T}
+
+detector:
+  onnx: ${FETALVISION_MODELS:-models}/head_detector.onnx
+  meta: ${FETALVISION_MODELS:-models}/head_detector.json
+  imgsz: 640
+  conf: null                                                        # null -> operating_point.json -> 0.25
+  iou: null                                                         # null -> operating_point.json -> 0.50
+  operating_point_json: results/phase2/detection/operating_point.json
+  max_det: 10
+  class_filter: null                                                # e.g. 0 to keep only class 0 of a multi-class stand-in
+
+segmenter:
+  onnx: ${FETALVISION_MODELS:-models}/head_segmenter.onnx
+  meta: ${FETALVISION_MODELS:-models}/head_segmenter_onnx.json      # written by export_segmenter (encoder, input_size [W,H], normalize, grayscale, stand_in)
+  input_size: [512, 352]                                            # (W, H); overridden by meta.input_size when present
+  crop_margin: 0.10                                                 # fraction of box width/height added on each side
+  mask_threshold: 0.5
+  normalize: imagenet                                               # imagenet | none  (3-channel RGB input in [0,1] before normalisation)
+  min_mask_area_px: 50                                              # below this the ellipse fit is skipped
+
+gating:
+  head_class: Brain                                                 # must be one of common.constants.CLASS_NAMES
+  min_probability: 0.0                                              # gate also requires p(head_class) >= this
+
+runtime:
+  providers: [CPUExecutionProvider]                                 # e.g. [CUDAExecutionProvider, CPUExecutionProvider] or [CoreMLExecutionProvider, CPUExecutionProvider]
+  intra_op_num_threads: 0                                           # 0 = onnxruntime default
+  inter_op_num_threads: 0
+  graph_optimization_level: all                                     # all | extended | basic | disable
+
+service:
+  host: 0.0.0.0
+  port: 8000
+  workers: 1
+  warmup: true
+  max_upload_mb: 25
+  latency_window: 1000                                              # rolling window for /metrics percentiles
+
+manifest_out: results/phase2/export/manifest.json

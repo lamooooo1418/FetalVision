@@ -1,0 +1,208 @@
+{
+  "run_name": "p1v2-mnv3s-full-ft-lowlr",
+  "phase": "phase1",
+  "split_evaluated": "val",
+  "input_resolution": [
+    224,
+    224
+  ],
+  "n_images": 925,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T19:47:56+00:00",
+  "metrics": {
+    "accuracy": 0.9308108108108109,
+    "n_correct": 861,
+    "n_errors": 64,
+    "accuracy_ci95_wilson": [
+      0.9126118518773977,
+      0.945446315564776
+    ],
+    "macro_f1": 0.8976078053746915,
+    "weighted_f1": 0.9302576960070236,
+    "top2_accuracy": 0.9837837837837838,
+    "log_loss": 0.1738105431098257,
+    "ece_10bins": 0.025877415328412423,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "count": 9,
+        "accuracy": 0.5555555555555556,
+        "confidence": 0.36281335684988236
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "count": 25,
+        "accuracy": 0.28,
+        "confidence": 0.45257275104522704
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "count": 37,
+        "accuracy": 0.4864864864864865,
+        "confidence": 0.5465061068534851
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "count": 25,
+        "accuracy": 0.68,
+        "confidence": 0.6393065333366394
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "count": 38,
+        "accuracy": 0.8421052631578947,
+        "confidence": 0.7481850887599745
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "count": 67,
+        "accuracy": 0.8955223880597015,
+        "confidence": 0.8593857092643852
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "count": 724,
+        "accuracy": 0.9972375690607734,
+        "confidence": 0.9852770388291027
+      }
+    ],
+    "per_class": {
+      "Abdomen": {
+        "precision": 0.8043478260869565,
+        "recall": 0.7708333333333334,
+        "f1": 0.7872340425531915,
+        "support": 96
+      },
+      "Brain": {
+        "precision": 0.975609756097561,
+        "recall": 0.9777777777777777,
+        "f1": 0.97669256381798,
+        "support": 450
+      },
+      "Femur": {
+        "precision": 0.8846153846153846,
+        "recall": 0.9757575757575757,
+        "f1": 0.9279538904899135,
+        "support": 165
+      },
+      "Thorax": {
+        "precision": 0.93,
+        "recall": 0.8691588785046729,
+        "f1": 0.8985507246376812,
+        "support": 214
+      }
+    },
+    "confusion_matrix": [
+      [
+        74,
+        8,
+        5,
+        9
+      ],
+      [
+        2,
+        440,
+        5,
+        3
+      ],
+      [
+        0,
+        2,
+        161,
+        2
+      ],
+      [
+        16,
+        1,
+        11,
+        186
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "Abdomen",
+      "Brain",
+      "Femur",
+      "Thorax"
+    ],
+    "confusion_pairs": {
+      "Abdomen->Brain": 8,
+      "Abdomen->Femur": 5,
+      "Abdomen->Thorax": 9,
+      "Brain->Abdomen": 2,
+      "Brain->Femur": 5,
+      "Brain->Thorax": 3,
+      "Femur->Brain": 2,
+      "Femur->Thorax": 2,
+      "Thorax->Abdomen": 16,
+      "Thorax->Brain": 1,
+      "Thorax->Femur": 11
+    },
+    "inference_seconds_total": 3.966520071029663,
+    "inference_ms_per_image": 4.288129806518555
+  },
+  "training": {
+    "stages": [
+      {
+        "stage": "stage1_head",
+        "epochs_run": 15,
+        "best_epoch": 15,
+        "best_val_loss": 0.18001395463943481,
+        "best_val_accuracy": 0.931891918182373,
+        "lr": 0.001,
+        "max_epochs": 15,
+        "early_stopping_patience": 4,
+        "wall_clock_seconds": 1138.4547610282898
+      },
+      {
+        "stage": "stage2_full",
+        "epochs_run": 5,
+        "best_epoch": 1,
+        "best_val_loss": 0.17381055653095245,
+        "best_val_accuracy": 0.930810809135437,
+        "lr": 2e-06,
+        "max_epochs": 15,
+        "early_stopping_patience": 4,
+        "wall_clock_seconds": 1050.002494096756
+      }
+    ],
+    "wall_clock_seconds": 2190.0065019130707,
+    "class_weight": null,
+    "params": {
+      "trainable": 929316,
+      "non_trainable": 12112,
+      "total": 941428
+    },
+    "trainable_backbone_layers_stage2": 157,
+    "checkpoint_rule": "epoch with lowest validation loss (ModelCheckpoint save_best_only, EarlyStopping restore_best_weights)"
+  },
+  "hardware": {
+    "platform": "macOS-15.3.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "tensorflow": "2.21.0",
+    "gpus": [],
+    "device": "CPU",
+    "keras": "3.15.1",
+    "cpu": "Apple M4 Pro"
+  },
+  "model_path": "/workspace/FetalVision/models/p1v2-mnv3s-full-ft-lowlr.keras",
+  "debug": false,
+  "data_dir": "/workspace/data/fetal_planes/processed/group_shuffle",
+  "augmentation": {
+    "enabled": true,
+    "rotation": 0.014,
+    "zoom": 0.05,
+    "translation": 0.05,
+    "contrast": 0.1,
+    "fill_mode": "reflect"
+  },
+  "selection_split": "val"
+}

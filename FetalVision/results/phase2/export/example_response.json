@@ -1,0 +1,212 @@
+{
+  "note": "Live responses from uvicorn on the Apple M4 Pro (ONNX Runtime CPU). Classifier = run selected in results/phase1/model_selection.json (temperature from its calibration.json); detector = models/head_detector.pt at the operating point from results/phase2/detection/operating_point.json; segmenter = models/head_segmenter.pt (HC18 U-Net). Image: HC18 050_HC.png, pixel_size_mm=0.0591132570716; HC18 ground-truth HC = 67.50 mm (training image, so not an unbiased check).",
+  "GET /health": {
+    "status": "ok",
+    "models_loaded": {
+      "plane_classifier": true,
+      "head_detector": true,
+      "head_segmenter": true
+    },
+    "stand_in_models": [],
+    "manifest_id": "b4fc44870d87",
+    "versions": {
+      "fetalvision": "2.0.0",
+      "numpy": "2.5.4",
+      "onnxruntime": "1.31.1",
+      "cv2": "5.0.0.93",
+      "fastapi": "0.162.2"
+    },
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "warmup_ms": {
+      "classify": 4.3,
+      "detect": 36.4,
+      "segment": 87.7
+    },
+    "uptime_s": 0.5
+  },
+  "POST /predict (gated: non-Brain plane -> not_applicable)": {
+    "plane": {
+      "label": "Thorax",
+      "index": 3,
+      "probability": 0.44653348875211746,
+      "probabilities": {
+        "Abdomen": 0.06622276041354942,
+        "Brain": 0.25440692079638505,
+        "Femur": 0.23283683003794808,
+        "Thorax": 0.44653348875211746
+      },
+      "raw_probabilities": {
+        "Abdomen": 0.08249103277921677,
+        "Brain": 0.2591135799884796,
+        "Femur": 0.2403082698583603,
+        "Thorax": 0.4180871844291687
+      },
+      "temperature": 0.8504106576479545
+    },
+    "gate": {
+      "head_plane": false,
+      "forced": false,
+      "head_class": "Brain"
+    },
+    "head": null,
+    "segmentation": null,
+    "hc": null,
+    "head_measurement": "not_applicable",
+    "pixel_size_mm": 0.0691358,
+    "image_hw": [
+      540,
+      800
+    ],
+    "timings_ms": {
+      "classify": 7.546,
+      "detect": 0.0,
+      "segment": 0.0,
+      "measure": 0.0,
+      "total": 7.574,
+      "request": 10.636
+    },
+    "manifest_id": "b4fc44870d87",
+    "filename": "050_HC.png"
+  },
+  "POST /predict force_head=true (full path)": {
+    "plane": {
+      "label": "Thorax",
+      "index": 3,
+      "probability": 0.44653348875211746,
+      "probabilities": {
+        "Abdomen": 0.06622276041354942,
+        "Brain": 0.25440692079638505,
+        "Femur": 0.23283683003794808,
+        "Thorax": 0.44653348875211746
+      },
+      "raw_probabilities": {
+        "Abdomen": 0.08249103277921677,
+        "Brain": 0.2591135799884796,
+        "Femur": 0.2403082698583603,
+        "Thorax": 0.4180871844291687
+      },
+      "temperature": 0.8504106576479545
+    },
+    "gate": {
+      "head_plane": false,
+      "forced": true,
+      "head_class": "Brain"
+    },
+    "head": {
+      "detected": true,
+      "box_xyxy": [
+        177.39707946777344,
+        68.29658508300781,
+        543.604736328125,
+        427.3326110839844
+      ],
+      "score": 0.9437700510025024,
+      "class_id": 0,
+      "n_candidates": 1,
+      "conf_threshold": 0.85,
+      "iou_threshold": 0.3,
+      "status": "ok"
+    },
+    "segmentation": {
+      "mask_area_px": 97538,
+      "ellipse": {
+        "cx": 367.3754577636719,
+        "cy": 250.4407958984375,
+        "a": 196.703857421875,
+        "b": 158.659423828125,
+        "angle": 35.848358154296875
+      },
+      "crop_xyxy": [
+        140,
+        32,
+        581,
+        464
+      ],
+      "mask_threshold": 0.5
+    },
+    "hc": {
+      "px": 1119.6078637923283,
+      "mm": 77.40498534957365,
+      "implementation": "segmentation.hc_measure"
+    },
+    "head_measurement": "ok",
+    "pixel_size_mm": 0.0691358,
+    "image_hw": [
+      540,
+      800
+    ],
+    "timings_ms": {
+      "classify": 3.62,
+      "detect": 51.317,
+      "segment": 42.259,
+      "measure": 1.622,
+      "total": 98.845,
+      "request": 101.732
+    },
+    "manifest_id": "b4fc44870d87",
+    "filename": "050_HC.png"
+  },
+  "POST /predict/annotated (response headers)": {
+    "x-fetalvision-plane": "Thorax",
+    "x-fetalvision-probability": "0.4465",
+    "x-fetalvision-head-measurement": "ok",
+    "x-fetalvision-hc-px": "1119.61",
+    "x-fetalvision-hc-mm": "77.40",
+    "x-fetalvision-total-ms": "83.5",
+    "content-type": "image/png"
+  },
+  "GET /metrics": {
+    "requests_total": 4,
+    "errors_total": 0,
+    "requests_by_endpoint": {
+      "/predict": 2,
+      "/predict/annotated": 2
+    },
+    "predictions_by_plane": {
+      "Thorax": 4
+    },
+    "predictions_by_head_measurement": {
+      "not_applicable": 2,
+      "ok": 2
+    },
+    "latency_request_ms": {
+      "n": 4,
+      "p50_ms": 48.469937493791804,
+      "p95_ms": 99.41746067779604,
+      "p99_ms": 101.26872576132882,
+      "mean_ms": 50.85131250962149
+    },
+    "latency_stage_ms": {
+      "classify": {
+        "n": 4,
+        "p50_ms": 2.934,
+        "p95_ms": 6.957099999999999,
+        "p99_ms": 7.42822,
+        "mean_ms": 3.8237500000000004
+      },
+      "detect": {
+        "n": 2,
+        "p50_ms": 35.6095,
+        "p95_ms": 49.746249999999996,
+        "p99_ms": 51.00285,
+        "mean_ms": 35.6095
+      },
+      "segment": {
+        "n": 2,
+        "p50_ms": 51.19,
+        "p95_ms": 59.2279,
+        "p99_ms": 59.94238,
+        "mean_ms": 51.19
+      },
+      "measure": {
+        "n": 2,
+        "p50_ms": 1.4115000000000002,
+        "p95_ms": 1.60095,
+        "p99_ms": 1.61779,
+        "mean_ms": 1.4115000000000002
+      }
+    }
+  }
+}

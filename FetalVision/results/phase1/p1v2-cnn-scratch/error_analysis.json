@@ -1,0 +1,1238 @@
+{
+  "run_name": "p1v2-cnn-scratch",
+  "consistency": {
+    "n_test": 914,
+    "n_correct": 815,
+    "n_errors": 99,
+    "accuracy": 0.8916849015317286,
+    "confusion_matrix_from_predictions": [
+      [
+        55,
+        2,
+        6,
+        36
+      ],
+      [
+        4,
+        442,
+        0,
+        3
+      ],
+      [
+        6,
+        16,
+        114,
+        8
+      ],
+      [
+        8,
+        8,
+        2,
+        204
+      ]
+    ],
+    "matches_metrics_json_confusion_matrix": true
+  },
+  "errors_by_true_class": {
+    "Abdomen": 44,
+    "Brain": 7,
+    "Femur": 30,
+    "Thorax": 18
+  },
+  "recall_by_class": {
+    "Abdomen": 0.5555555555555556,
+    "Brain": 0.9844097995545658,
+    "Femur": 0.7916666666666666,
+    "Thorax": 0.918918918918919
+  },
+  "confusion_pairs": [
+    {
+      "true": "Abdomen",
+      "pred": "Thorax",
+      "count": 36,
+      "mean_confidence": 0.5999239641759131
+    },
+    {
+      "true": "Femur",
+      "pred": "Brain",
+      "count": 16,
+      "mean_confidence": 0.784682834520936
+    },
+    {
+      "true": "Femur",
+      "pred": "Thorax",
+      "count": 8,
+      "mean_confidence": 0.5978350527584553
+    },
+    {
+      "true": "Thorax",
+      "pred": "Abdomen",
+      "count": 8,
+      "mean_confidence": 0.512473426759243
+    },
+    {
+      "true": "Thorax",
+      "pred": "Brain",
+      "count": 8,
+      "mean_confidence": 0.4989888370037079
+    },
+    {
+      "true": "Abdomen",
+      "pred": "Femur",
+      "count": 6,
+      "mean_confidence": 0.6309220989545187
+    },
+    {
+      "true": "Femur",
+      "pred": "Abdomen",
+      "count": 6,
+      "mean_confidence": 0.47354285418987274
+    },
+    {
+      "true": "Brain",
+      "pred": "Abdomen",
+      "count": 4,
+      "mean_confidence": 0.529030553996563
+    },
+    {
+      "true": "Brain",
+      "pred": "Thorax",
+      "count": 3,
+      "mean_confidence": 0.6506373087565104
+    },
+    {
+      "true": "Abdomen",
+      "pred": "Brain",
+      "count": 2,
+      "mean_confidence": 0.47711189091205597
+    },
+    {
+      "true": "Thorax",
+      "pred": "Femur",
+      "count": 2,
+      "mean_confidence": 0.3406808078289032
+    }
+  ],
+  "a_confidence": {
+    "median_confidence_errors": 0.5566961765289307,
+    "median_confidence_correct": 0.9784477353096008,
+    "mean_confidence_errors": 0.5995654126610419,
+    "mean_confidence_correct": 0.8940696575524617,
+    "share_errors_below_0.6": 0.5151515151515151,
+    "share_correct_below_0.6": 0.08466257668711656,
+    "n_errors_below_0.6": 51,
+    "interpretation": "errors with low confidence can be caught by an abstention threshold; high-confidence errors cannot"
+  },
+  "b_by_us_machine": {
+    "available": true,
+    "by_level": {
+      "Aloka": {
+        "n": 186,
+        "errors": 15,
+        "error_rate": 0.08064516129032258
+      },
+      "Other": {
+        "n": 29,
+        "errors": 6,
+        "error_rate": 0.20689655172413793
+      },
+      "Voluson E6": {
+        "n": 633,
+        "errors": 74,
+        "error_rate": 0.11690363349131122
+      },
+      "Voluson S10": {
+        "n": 66,
+        "errors": 4,
+        "error_rate": 0.06060606060606061
+      }
+    },
+    "chi_square": {
+      "chi2": 6.431312978773926,
+      "p_value": 0.09241106780570371,
+      "dof": 3,
+      "min_expected_count": 3.141137855579869,
+      "note": "expected counts < 5 make the chi-square approximation unreliable"
+    }
+  },
+  "b_by_operator": {
+    "available": true,
+    "by_level": {
+      "Op. 1": {
+        "n": 319,
+        "errors": 42,
+        "error_rate": 0.13166144200626959
+      },
+      "Op. 2": {
+        "n": 261,
+        "errors": 26,
+        "error_rate": 0.09961685823754789
+      },
+      "Op. 3": {
+        "n": 186,
+        "errors": 15,
+        "error_rate": 0.08064516129032258
+      },
+      "Other": {
+        "n": 148,
+        "errors": 16,
+        "error_rate": 0.10810810810810811
+      }
+    },
+    "chi_square": {
+      "chi2": 3.479199188071555,
+      "p_value": 0.32346995396965006,
+      "dof": 3,
+      "min_expected_count": 16.03063457330416,
+      "note": ""
+    }
+  },
+  "c_patients": {
+    "available": true,
+    "n_patients_test": 174,
+    "n_patients_with_errors": 73,
+    "share_patients_with_errors": 0.41954022988505746,
+    "errors_per_patient_distribution": {
+      "1": 54,
+      "2": 15,
+      "3": 3,
+      "6": 1
+    },
+    "top3_patients": [
+      {
+        "Patient_num": "803",
+        "errors": 6,
+        "images_in_test": 20
+      },
+      {
+        "Patient_num": "806",
+        "errors": 3,
+        "images_in_test": 9
+      },
+      {
+        "Patient_num": "708",
+        "errors": 3,
+        "images_in_test": 11
+      }
+    ],
+    "share_of_errors_from_top3_patients": 0.12121212121212122,
+    "max_errors_single_patient": 6,
+    "mean_error_rate_patients_with_errors": 0.24112736354879782
+  },
+  "d_train_near_duplicates": {
+    "available": true,
+    "max_phash_dist": 6,
+    "n_errors_with_train_near_duplicate": 0,
+    "n_near_duplicates_with_different_label": 0,
+    "n_near_duplicate_label_equals_prediction": 0,
+    "median_min_phash_dist": 16.0,
+    "per_error": [
+      {
+        "error_id": 1,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "924",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/0a7cb888017fefb9.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 2,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1158",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/58d85ba7642b785d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 3,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "855",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/fd52ac9deb7772d5.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 4,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "929",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/822c2c5fc3b285c0.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 5,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "714",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/0188cb082b688d05.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 6,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "914",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/ade58ba40a88167f.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 7,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1035",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/e01746821c7efc69.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 8,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1707",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/685b638bfdd8edf4.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 9,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1280",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/26cfe4b39ca2d9ae.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 10,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "916",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/578f0cf45e4ae7b9.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 11,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "642",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/96032722e0ef29fe.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 12,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1667",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/6e170f6394812a2e.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 13,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "673",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/ce40d64fb6e26f2c.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 14,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1215",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/e333165b06280b7a.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 15,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1001",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/d5db7f76a95fe012.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 16,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "713",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/f354a0dd28308a90.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 17,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "657",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/893638d85bb06f39.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 18,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1158",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/58d85ba7642b785d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 19,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "998",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/4a5fbb6cb4e4b67d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 20,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1780",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/809fbc2b1cf55803.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 21,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1745",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/155eaea12dc4fbf9.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 22,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1454",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/3319b99c12b059b2.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 23,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "684",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/067a5f5917f57962.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 24,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "705",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/6d2c30ed2f7db66e.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 25,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "851",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/e24e48fd85aec96a.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 26,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "691",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/8fee337ce9297b7a.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 27,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1265",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/3602b681efc8a3ae.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 28,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "305",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/5ffe5931cf3f74ba.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 29,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "754",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/05f7fa0a30bdf0d0.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 30,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "723",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/b9202a24e424d275.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 31,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1203",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/3f00acc82ee92ed5.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 32,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "907",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/8d576415fef8f157.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 33,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "1207",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/0e1240cc1d130901.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 34,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "696",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/f143989fc4e94c17.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 35,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1398",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/c609f403f448cb41.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 36,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "944",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/16d0e33808b77a1c.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 37,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1227",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/7e4532088108ed15.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 38,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1173",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/a6d80d4844efcdff.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 39,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "657",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/893638d85bb06f39.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 40,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1321",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/09c8725a4f1dd5d3.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 41,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "711",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/580bb13d72a17f37.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 42,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "1036",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/6a35720c46e080f2.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 43,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "984",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/4891c38a264b9df6.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 44,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "920",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/593485a68381487d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 45,
+        "min_phash_dist_to_train": 8,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1766",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/ed948d89ce8e0add.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 46,
+        "min_phash_dist_to_train": 10,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1249",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/f5203e8ee73e6e1e.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 47,
+        "min_phash_dist_to_train": 10,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1177",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/241b250c314ee9ab.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 48,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "1202",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/b7016a10494c5357.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 49,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "682",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/a5ce12d518ac1f52.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 50,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "746",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/188f86391894450d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 51,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1444",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/5d8799dc2a1059e9.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 52,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "671",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/b77e13fa9127fad8.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 53,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "867",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/afc97526b8b5045b.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 54,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1557",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/40acac193bc5bb11.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 55,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "884",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/f320209f32569cf1.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 56,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "649",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/f69a4f5fb7ad7e3b.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 57,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1085",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/8eccf75ed3d3bc92.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 58,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "897",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/fffc7bd2499d3e53.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 59,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "832",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/46e0df7ce6d40436.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 60,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1481",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/03d8d87a85f4ac86.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 61,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "680",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/afdd856cb1c774f2.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 62,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1472",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/5377aab85e593cbc.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 63,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1308",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/8f5856be1ff9e61b.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 64,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1196",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/933950991cc0a9c0.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 65,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1512",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/6034bdbe84365cf3.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 66,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1004",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/5ec8193eba8be134.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 67,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1004",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/947269abe3372b53.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 68,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1226",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/2062375beb2d1488.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 69,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "870",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/a755f7c2c2e51736.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 70,
+        "min_phash_dist_to_train": 20,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "847",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/98070628b8b0338b.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 71,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1174",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/fc3c4e2f1eb58c4a.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 72,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1472",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/25cb63555a061f08.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 73,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1634",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/327a0f307779ab51.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 74,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1247",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/1d996b35098d7af0.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 75,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1028",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/7ff2cb1350aca0d6.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 76,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "742",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/8bff07aed22fb6bf.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 77,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1100",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/d4020f124ffc946f.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 78,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "746",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/ce45a12ffc375373.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 79,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1020",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/8c9d54eb411abfb4.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 80,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1118",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/dab89761445bb22e.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 81,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "723",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/7e07658b7359ded8.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 82,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "1135",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/242e5ff3408c9fab.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 83,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1306",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/2f2679d25321f5bf.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 84,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "932",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/f9f7fc89ed0f572e.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 85,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "746",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/e6cc635e6ba5ca04.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 86,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "712",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/e198f0262c0c9be2.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 87,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "710",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/5a14e99aa9a8bbae.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 88,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "687",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/d4194d29f9e572c6.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 89,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1490",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/c6c85cf5738dc57d.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 90,
+        "min_phash_dist_to_train": 18,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1189",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/e565f5b685ba7431.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 91,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1513",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/585e760f83817d99.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 92,
+        "min_phash_dist_to_train": 10,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "858",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/1cb050ccf6abb486.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 93,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Abdomen",
+        "nearest_train_patient": "1273",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Abdomen/b6b8fa6e5dd1dd57.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 94,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1521",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/8499731867544826.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 95,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "883",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/f719c87e68e305d6.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 96,
+        "min_phash_dist_to_train": 12,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1445",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/0e369d9200085093.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 97,
+        "min_phash_dist_to_train": 16,
+        "nearest_train_label": "Femur",
+        "nearest_train_patient": "1267",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Femur/a6e72098a8cbf998.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      },
+      {
+        "error_id": 98,
+        "min_phash_dist_to_train": 14,
+        "nearest_train_label": "Brain",
+        "nearest_train_patient": "1620",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Brain/f82da25f3a9279c5.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": true
+      },
+      {
+        "error_id": 99,
+        "min_phash_dist_to_train": 10,
+        "nearest_train_label": "Thorax",
+        "nearest_train_patient": "1035",
+        "nearest_train_path": "/workspace/data/fetal_planes/processed/group_shuffle/train/Thorax/f72b300cda962976.png",
+        "is_near_duplicate": false,
+        "near_duplicate_label_mismatch": false,
+        "nearest_train_label_equals_prediction": false
+      }
+    ]
+  },
+  "e_second_choice": {
+    "n_errors": 99,
+    "n_true_class_is_second_choice": 66,
+    "share_recovered_by_top2": 0.6666666666666666,
+    "median_p_true": 0.23243610560894012,
+    "n_p_true_below_0.1": 20,
+    "margin_median": 0.3346123546361923
+  },
+  "contact_sheets": [
+    "errors_page1.png",
+    "errors_page2.png",
+    "errors_page3.png",
+    "errors_page4.png",
+    "errors_page5.png"
+  ],
+  "error_review_csv": "results/phase1/p1v2-cnn-scratch/error_review.csv"
+}

@@ -1,0 +1,36 @@
+{
+  "model": {
+    "arch": "Unet",
+    "encoder": "mobilenet_v2",
+    "encoder_weights": "imagenet",
+    "in_channels": 3,
+    "classes": 1
+  },
+  "input_size_wh": [
+    512,
+    352
+  ],
+  "original_size_wh": [
+    800,
+    540
+  ],
+  "normalisation": "imagenet mean/std on grayscale replicated to 3 channels",
+  "threshold": 0.5,
+  "seed": 42,
+  "git_commit": "unknown",
+  "best_epoch": 13,
+  "best_val_dice": 0.9747277454241811,
+  "model_name": "head_segmenter",
+  "framework": "segmentation_models_pytorch",
+  "arch": "Unet",
+  "encoder": "mobilenet_v2",
+  "input_size": [
+    512,
+    352
+  ],
+  "input_size_order": "WH",
+  "normalize": "imagenet",
+  "stand_in": false,
+  "stand_in_kind": null,
+  "weights_format": "torch state_dict of smp.Unet (load with fetalvision.segmentation.model.load_checkpoint)"
+}

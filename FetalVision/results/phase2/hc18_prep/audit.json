@@ -1,0 +1,251 @@
+{
+  "run_name": "hc18_prep",
+  "phase": "phase2",
+  "seed": 42,
+  "git_commit": "unknown",
+  "source": "HC18 Grand Challenge training set (van den Heuvel et al. 2018), Zenodo 1327317, CC BY 4.0",
+  "image_resolution_wh": [
+    800,
+    540
+  ],
+  "n_images": 999,
+  "n_groups": 806,
+  "n_exam_ids": 806,
+  "n_second_images": 193,
+  "grouping_note": "group = union-find(exam id from filename prefix, near-duplicate cluster pHash<=4 & dHash<=6). HC18 has no patient ids; this is a proxy for patient grouping.",
+  "split_fractions": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "split_method": "sklearn GroupShuffleSplit (two-stage), seed 42",
+  "per_split": {
+    "train": {
+      "n_images": 696,
+      "n_groups": 564,
+      "n_exams": 564,
+      "n_labels": 696,
+      "hc_mm": {
+        "mean": 176.61419540229883,
+        "std": 67.07981778197498,
+        "min": 44.3,
+        "median": 174.89499999999998,
+        "max": 346.4,
+        "n": 696
+      },
+      "pixel_size_mm": {
+        "mean": 0.14070376641426752,
+        "std": 0.052896242116102596,
+        "min": 0.04941494158,
+        "median": 0.12953914128799998,
+        "max": 0.326366270742,
+        "n": 696
+      },
+      "box_area_frac": {
+        "mean": 0.3863797548813533,
+        "std": 0.14015172357938607,
+        "min": 0.06222222222222222,
+        "median": 0.39454976851851853,
+        "max": 0.7347994585473493,
+        "n": 696
+      },
+      "size_cat_counts": {
+        "medium": 239,
+        "large": 229,
+        "small": 228
+      },
+      "n_mask_flagged": 0
+    },
+    "val": {
+      "n_images": 149,
+      "n_groups": 121,
+      "n_exams": 121,
+      "n_labels": 149,
+      "hc_mm": {
+        "mean": 172.2314765100671,
+        "std": 61.60684438982626,
+        "min": 64.3,
+        "median": 171.04,
+        "max": 335.0,
+        "n": 149
+      },
+      "pixel_size_mm": {
+        "mean": 0.13780547288893288,
+        "std": 0.05099036545015389,
+        "min": 0.0542289407357,
+        "median": 0.124892771244,
+        "max": 0.326529318287,
+        "n": 149
+      },
+      "box_area_frac": {
+        "mean": 0.3865620308429735,
+        "std": 0.13868090169874978,
+        "min": 0.07485185185185185,
+        "median": 0.39199537037037036,
+        "max": 0.6615833333333333,
+        "n": 149
+      },
+      "size_cat_counts": {
+        "medium": 54,
+        "large": 49,
+        "small": 46
+      },
+      "n_mask_flagged": 0
+    },
+    "test": {
+      "n_images": 154,
+      "n_groups": 121,
+      "n_exams": 121,
+      "n_labels": 154,
+      "hc_mm": {
+        "mean": 166.3814285714286,
+        "std": 59.31983993275349,
+        "min": 62.8,
+        "median": 172.475,
+        "max": 330.9,
+        "n": 154
+      },
+      "pixel_size_mm": {
+        "mean": 0.13794594720516298,
+        "std": 0.055093011547400816,
+        "min": 0.0618481636047,
+        "median": 0.1232152074215,
+        "max": 0.393280178308,
+        "n": 154
+      },
+      "box_area_frac": {
+        "mean": 0.3761050686724769,
+        "std": 0.1597747001186502,
+        "min": 0.04574074074074074,
+        "median": 0.40683417042503756,
+        "max": 0.6908611111111111,
+        "n": 154
+      },
+      "size_cat_counts": {
+        "small": 59,
+        "large": 56,
+        "medium": 39
+      },
+      "n_mask_flagged": 0
+    }
+  },
+  "exact_duplicates": {
+    "n_sets": 1,
+    "n_images": 2,
+    "sets": [
+      [
+        "392_2HC.png",
+        "392_HC.png"
+      ]
+    ]
+  },
+  "near_duplicates": {
+    "thresholds": {
+      "max_phash_dist": 4,
+      "max_dhash_dist": 6
+    },
+    "n_clusters_gt1": 8,
+    "n_images_in_clusters": 17,
+    "n_clusters_spanning_exam_ids": 0,
+    "clusters_spanning_exam_ids": [],
+    "clusters": [
+      [
+        "198_2HC.png",
+        "198_HC.png"
+      ],
+      [
+        "243_3HC.png",
+        "243_HC.png"
+      ],
+      [
+        "392_2HC.png",
+        "392_3HC.png",
+        "392_HC.png"
+      ],
+      [
+        "507_2HC.png",
+        "507_HC.png"
+      ],
+      [
+        "720_2HC.png",
+        "720_HC.png"
+      ],
+      [
+        "783_4HC.png",
+        "783_HC.png"
+      ],
+      [
+        "788_2HC.png",
+        "788_HC.png"
+      ],
+      [
+        "795_2HC.png",
+        "795_HC.png"
+      ]
+    ]
+  },
+  "mask_failures": {
+    "n": 0,
+    "cases": [],
+    "criteria": {
+      "min_outline_coverage": 0.98,
+      "max_outline_dist_px": 2.5,
+      "max_area_rel_diff": 0.05
+    }
+  },
+  "outline_to_ellipse_distance_px": {
+    "max_over_dataset": 5.0,
+    "p99_of_per_image_max": 1.399993896484375,
+    "note": "max distance of any outline pixel to the fitted-ellipse boundary"
+  },
+  "n_annotations_touching_border": 5,
+  "box_size_tertiles_area_frac": {
+    "small_lt": 0.33286265432098766,
+    "large_ge": 0.4567337962962963
+  },
+  "box_area_px_stats": {
+    "mean": 166224.6936936937,
+    "std": 61867.438949082,
+    "min": 19760.0,
+    "median": 170834.0,
+    "max": 317016.0,
+    "n": 999
+  },
+  "box_area_frac_stats": {
+    "mean": 0.3848230556242106,
+    "std": 0.14318679969851733,
+    "min": 0.04574074074074074,
+    "median": 0.3954490740740741,
+    "max": 0.7347994585473493,
+    "n": 999
+  },
+  "hc_stats_mm": {
+    "mean": 174.38309309309312,
+    "std": 65.24937904538365,
+    "min": 44.3,
+    "median": 174.06,
+    "max": 346.4,
+    "n": 999
+  },
+  "pixel_size_stats_mm": {
+    "mean": 0.13984635911348978,
+    "std": 0.05297868806753475,
+    "min": 0.04941494158,
+    "median": 0.128357242315,
+    "max": 0.393280178308,
+    "n": 999
+  },
+  "hc_from_fitted_ellipse_vs_csv_mm": {
+    "mae": 0.008852259560107434,
+    "median_ae": 0.007179316016248549,
+    "max_ae": 0.07014905389374348,
+    "note": "Ramanujan circumference of the ellipse fitted to the outline x pixel size, vs the HC in the official CSV; validates mask + HC formula."
+  },
+  "yolo_dataset": {
+    "path": "/workspace/data/hc18/processed/yolo",
+    "n_labels": 999,
+    "class_names": [
+      "fetal_head"
+    ]
+  }
+}

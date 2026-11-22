@@ -1,0 +1,6 @@
+{
+  "confusion_matrix_val.png": "Confusion matrix on the val split (n=925, input 224x224).",
+  "reliability_val.png": "Reliability diagram on the val split (10 equal-width bins, input 224x224); ECE=0.0263.",
+  "confusion_matrix_test.png": "Confusion matrix on the test split (n=914, input 224x224).",
+  "reliability_test.png": "Reliability diagram on the test split (10 equal-width bins, input 224x224); ECE=0.0222."
+}

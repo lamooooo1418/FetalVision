@@ -1,0 +1,6 @@
+{
+  "sam_examples_val.png": "MobileSAM zero-shot \u2013 8 random VAL images (seed 42), 800x540 px; prompts: GT box / detector box at operating point (conf>=0.85, NMS 0.3); Dice vs sonographer mask",
+  "sam_worst3_val.png": "MobileSAM 3 worst cases by detector-box Dice \u2013 VAL split, 800x540 px, same prompts as above; compare with GT (sonographer ellipse)",
+  "sam_examples_test.png": "MobileSAM zero-shot \u2013 8 random TEST images (seed 42), 800x540 px; prompts: GT box / detector box at operating point (conf>=0.85, NMS 0.3); Dice vs sonographer mask",
+  "sam_worst3_test.png": "MobileSAM 3 worst cases by detector-box Dice \u2013 TEST split, 800x540 px, same prompts as above; compare with GT (sonographer ellipse)"
+}

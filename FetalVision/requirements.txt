@@ -1,0 +1,34 @@
+# Pinned to the versions used for the reported runs (Google Colab, November 2026, and local macOS runs).
+# Install:  pip install -r requirements.txt && pip install -e .
+# Local runs: Apple M4 Pro, macOS 15, Python 3.12.6 (TensorFlow CPU, PyTorch MPS). Colab runs: Python 3.12, T4.
+# Phase 1 – classification (TensorFlow/Keras)
+tensorflow==2.21.0
+keras==3.15.1
+# Phase 2 – detection, segmentation, integration (PyTorch)
+torch==2.15.0
+torchvision==0.29.2
+ultralytics==8.4.208
+segmentation-models-pytorch==0.6.0
+albumentations==2.0.8
+pycocotools==2.0.11
+# Shared
+numpy==2.5.4
+pandas==3.1.1
+scipy==1.18.1
+scikit-learn==1.9.1
+pillow==13.0.0
+imagehash==4.3.2
+opencv-python-headless==5.0.0.93
+matplotlib==3.11.2
+seaborn==0.13.2
+pyyaml==6.0.3
+wandb==0.31.0
+# Export, service and benchmark
+onnx==1.23.2
+onnxruntime==1.31.1
+tf2onnx==1.17.0
+fastapi==0.162.2
+uvicorn==0.54.0
+python-multipart==0.0.33
+httpx==0.28.1
+psutil==7.2.2

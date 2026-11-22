@@ -1,0 +1,12 @@
+{
+  "confusion_matrix_val.png": "Confusion matrix on the val split (n=995, input 224x224).",
+  "reliability_val.png": "Reliability diagram on the val split (10 equal-width bins, input 224x224); ECE=0.0256.",
+  "confusion_matrix_test.png": "Confusion matrix on the test split (n=983, input 224x224).",
+  "reliability_test.png": "Reliability diagram on the test split (10 equal-width bins, input 224x224); ECE=0.0212.",
+  "reliability_val_calibrated.png": "Reliability diagram on val before/after temperature scaling (T=0.655 fitted on val; ECE 0.0256 -> 0.0122).",
+  "reliability_test_calibrated.png": "Reliability diagram on test before/after temperature scaling (T=0.655 fitted on val; ECE 0.0212 -> 0.0094).",
+  "errors_page1.png": "Contact sheet of all test errors of p1-mnv3s-partial-ft-original (tile title: error id, true->pred, confidence, US machine, patient).",
+  "errors_page2.png": "Contact sheet of all test errors of p1-mnv3s-partial-ft-original (tile title: error id, true->pred, confidence, US machine, patient).",
+  "error_confidence_hist.png": "Distribution of the max softmax probability for correct vs wrong test predictions.",
+  "error_rate_by_machine.png": "Test error rate per ultrasound machine with counts and chi-square p-value."
+}

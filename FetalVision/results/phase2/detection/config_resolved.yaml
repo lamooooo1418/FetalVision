@@ -1,0 +1,42 @@
+run_name: detection
+phase: phase2
+seed: 42
+data_yaml: /workspace/data/hc18/processed/yolo/data.yaml
+splits_csv: /workspace/data/hc18/processed/splits.csv
+results_dir: results/phase2/detection
+project_dir: results/phase2/detection/yolo_runs
+export_weights: models/head_detector.pt
+model: yolo11n.pt
+imgsz: 640
+batch: 16
+epochs: 40
+max_train_minutes: 60
+patience: 10
+cos_lr: true
+deterministic: true
+optimizer: auto
+lr0: 0.01
+augment:
+  fliplr: 0.5
+  flipud: 0.0
+  mosaic: 1.0
+  degrees: 0.0
+  close_mosaic: 10
+workers: 4
+device: auto
+amp: false
+sweep:
+  conf_min: 0.05
+  conf_max: 0.95
+  conf_step: 0.05
+  nms_ious:
+  - 0.3
+  - 0.5
+  - 0.7
+  match_iou: 0.5
+  min_recall: 0.98
+evaluate:
+  n_demo_images: 12
+  video_frames: 30
+  video_fps: 3
+  localisation_iou_low: 0.1

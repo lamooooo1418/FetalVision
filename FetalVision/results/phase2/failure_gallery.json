@@ -1,0 +1,9 @@
+{
+  "selected_classifier": "p1v2-mnv3s-partial-ft-e40",
+  "statements": {
+    "classifier": "Highest-confidence classifier error on the test split: a Femur plane predicted as Brain with confidence 0.99. Because it is confident, the review flag (probability < 0.6) does not catch it; confident errors on images whose salient structure resembles another plane (here a curved bone next to a round soft-tissue mass) are the residual classifier failure.",
+    "detector": "Lowest-IoU detection on the test split (063_HC.png, IoU 0.881): the box is confidently placed but extends beyond the skull into adjacent echogenic tissue; no FP/FN occurred at the operating point, so mild mislocalisation is the residual detector failure.",
+    "segmentation": "Worst-Dice segmentation on the test split (096_HC.png, Dice 0.808): a small early-gestation head with a faint lower skull edge; the mask misses part of the head and the HC is under-estimated by 13.6 mm, outside the 3 mm acceptance band.",
+    "domain_shift": "HC18 brain image 067_HC.png routed as Thorax (P(Brain) 0.00); overall 90.9% of HC18 test images are routed as Brain by a classifier trained on FETAL_PLANES_DB, so cross-centre deployment needs the review flag / force_head option or classifier fine-tuning on the target centre."
+  }
+}

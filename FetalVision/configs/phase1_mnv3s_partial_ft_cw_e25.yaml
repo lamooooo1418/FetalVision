@@ -1,0 +1,25 @@
+# Phase 1 v2 – partial fine-tuning + class-weighted loss (sklearn balanced)
+run_name: p1v2-mnv3s-partial-ft-cw-e25
+model: {type: mobilenetv3s, mode: partial, weights: imagenet, dropout: 0.3, partial_last_n: 30}
+training:
+  stage1: {optimizer: adam, lr: 0.001, epochs: 15, early_stopping_patience: 4}   # head only, backbone frozen
+  stage2: {optimizer: adam, lr: 0.00001, epochs: 25, early_stopping_patience: 4}  # last 30 backbone layers, BN frozen
+seed: 42
+phase: phase1
+models_dir: models
+results_root: results
+data:
+  processed_dir: ${FETALVISION_DATA}/fetal_planes/processed/group_shuffle
+  image_size: [224, 224]
+  batch_size: 32
+  cache: true
+augmentation:              # Phase 1 pipeline, training split only
+  enabled: true
+  rotation: 0.014          # fraction of 2*pi (~5 degrees)
+  zoom: 0.05
+  translation: 0.05
+  contrast: 0.10
+  fill_mode: reflect
+class_weight: balanced         # balanced -> sklearn 'balanced' weights computed on the train split | none
+hardware: {intra_op_threads: 10, inter_op_threads: 2}
+debug: {max_steps: 0}      # >0 -> smoke run on N batches per split (never for reported numbers)

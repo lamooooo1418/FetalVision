@@ -1,0 +1,572 @@
+{
+  "tag": "colab_t4",
+  "conditions": {
+    "hardware": {
+      "os": "Linux 6.6.159+",
+      "machine": "x86_64",
+      "python": "3.13.16",
+      "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+      "cpu_cores_logical": 2,
+      "ram_gb": 12.7,
+      "gpu": "Tesla T4, 15360 MiB",
+      "cpu_cores_physical": 1
+    },
+    "versions": {
+      "fetalvision": "2.0.0",
+      "numpy": "2.4.6",
+      "onnxruntime": null,
+      "onnxruntime-gpu": "1.31.1",
+      "onnx": "1.23.2",
+      "cv2": "5.0.0.93",
+      "torch": "2.14.1+cu130",
+      "tensorflow": "2.21.0",
+      "keras": "3.13.2",
+      "ultralytics": null,
+      "segmentation_models_pytorch": null,
+      "fastapi": "0.141.1",
+      "uvicorn": "0.54.0"
+    },
+    "ort_available_providers": [
+      "TensorrtExecutionProvider",
+      "CUDAExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "images": "/content/data/hc18/raw/parity_samples",
+    "n_images": 32,
+    "image_resolution_hw": [
+      540,
+      800
+    ],
+    "batch_size": 1,
+    "n_warmup": 20,
+    "n_iters": 200,
+    "ort_intra_op_threads": "default",
+    "input_resolution": {
+      "classifier_hw": [
+        224,
+        224
+      ],
+      "detector_imgsz": 640,
+      "segmenter_wh": [
+        512,
+        352
+      ]
+    },
+    "thresholds": {
+      "temperature": 0.8269710796223418,
+      "temperature_source": "plane_classifier.json",
+      "conf": 0.85,
+      "iou": 0.3,
+      "conf_source": "operating_point.json",
+      "max_det": 10,
+      "crop_margin": 0.1,
+      "mask_threshold": 0.5,
+      "min_mask_area_px": 50,
+      "segmenter_normalize": "imagenet",
+      "segmenter_grayscale": false,
+      "gate_min_probability": 0.0,
+      "head_class": "Brain"
+    },
+    "detector_conf_override": null,
+    "force_head": true,
+    "stand_in_models": [],
+    "models": {
+      "plane_classifier": {
+        "path": "/content/FetalVision/models/plane_classifier.onnx",
+        "exists": true,
+        "size_bytes": 3789634,
+        "sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/p1v2-mnv3s-partial-ft-e40.keras",
+        "meta_sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523"
+      },
+      "head_detector": {
+        "path": "/content/FetalVision/models/head_detector.onnx",
+        "exists": true,
+        "size_bytes": 10663466,
+        "sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/head_detector.pt",
+        "meta_sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1"
+      },
+      "head_segmenter": {
+        "path": "/content/FetalVision/models/head_segmenter.onnx",
+        "exists": true,
+        "size_bytes": 26495329,
+        "sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/head_segmenter.pt",
+        "meta_sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092"
+      }
+    },
+    "manifest_id": "68985665657f",
+    "timer": "time.perf_counter, single process, sequential"
+  },
+  "backends": [
+    {
+      "backend": "ort_cuda",
+      "providers_requested": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "providers_active": {
+        "plane_classifier": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "head_detector": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ],
+        "head_segmenter": [
+          "CUDAExecutionProvider",
+          "CPUExecutionProvider"
+        ]
+      },
+      "stages": {
+        "classify": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 3.2806669999558835,
+            "p95_ms": 4.145137900025018,
+            "p99_ms": 5.276953270022203,
+            "mean_ms": 3.421251819999611,
+            "std_ms": 0.44410800500979314,
+            "min_ms": 2.7110349999475147,
+            "max_ms": 5.7613440000068294
+          },
+          "throughput_img_per_s": 292.2029225227821,
+          "input_resolution": [
+            224,
+            224
+          ],
+          "batch_size": 1
+        },
+        "detect": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 14.653103499995268,
+            "p95_ms": 17.24647519997688,
+            "p99_ms": 19.37249747999657,
+            "mean_ms": 14.155342645004794,
+            "std_ms": 2.1213738898940293,
+            "min_ms": 11.01466399995843,
+            "max_ms": 20.393860000012864
+          },
+          "throughput_img_per_s": 70.63903193001516,
+          "input_resolution": [
+            640,
+            640
+          ],
+          "batch_size": 1
+        },
+        "segment": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 13.246686999991653,
+            "p95_ms": 14.228281700019352,
+            "p99_ms": 15.526094380043103,
+            "mean_ms": 13.331325170006494,
+            "std_ms": 0.4930798273929565,
+            "min_ms": 12.599122999972678,
+            "max_ms": 15.959021999947254
+          },
+          "throughput_img_per_s": 75.00574625585165,
+          "input_resolution": [
+            352,
+            512
+          ],
+          "batch_size": 1,
+          "note": "fixed central box (segmentation always runs regardless of the detector)"
+        },
+        "measure": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 3.4843784999907257,
+            "p95_ms": 4.045327800002949,
+            "p99_ms": 5.743718750053398,
+            "mean_ms": 3.6172852350023277,
+            "std_ms": 0.44673716666744445,
+            "min_ms": 3.281740000034006,
+            "max_ms": 6.371366000053058
+          },
+          "throughput_img_per_s": 276.387520144948,
+          "input_resolution": [
+            540,
+            800
+          ],
+          "batch_size": 1
+        }
+      },
+      "thresholds": {
+        "temperature": 0.8269710796223418,
+        "temperature_source": "plane_classifier.json",
+        "conf": 0.85,
+        "iou": 0.3,
+        "conf_source": "operating_point.json",
+        "max_det": 10,
+        "crop_margin": 0.1,
+        "mask_threshold": 0.5,
+        "min_mask_area_px": 50,
+        "segmenter_normalize": "imagenet",
+        "segmenter_grayscale": false,
+        "gate_min_probability": 0.0,
+        "head_class": "Brain"
+      },
+      "force_head": true,
+      "full_pipeline": {
+        "latency": {
+          "n": 200,
+          "p50_ms": 32.68482649997395,
+          "p95_ms": 42.40409590004787,
+          "p99_ms": 45.18784856998762,
+          "mean_ms": 35.012142764999794,
+          "std_ms": 5.280575879438683,
+          "min_ms": 29.3631730000925,
+          "max_ms": 72.9974589999074
+        },
+        "throughput_img_per_s": 28.56087801172565,
+        "stage_mean_ms_within_pipeline": {
+          "classify": 2.8463125,
+          "detect": 11.29628125,
+          "segment": 13.5705,
+          "measure": 3.8035625
+        },
+        "head_measurement_status_counts": {
+          "ok": 32
+        },
+        "plane_counts": {
+          "Brain": 29,
+          "Abdomen": 1,
+          "Thorax": 2
+        },
+        "input_resolution": [
+          540,
+          800
+        ],
+        "batch_size": 1
+      },
+      "classifier_batched": {
+        "batch_8": {
+          "throughput_img_per_s": 2313.266051064122,
+          "latency_per_batch_ms": 3.4583138400012103,
+          "n_batches": 25
+        },
+        "batch_32": {
+          "throughput_img_per_s": 2371.704966819253,
+          "latency_per_batch_ms": 13.492403333335309,
+          "n_batches": 6
+        }
+      },
+      "memory": {
+        "rss_before_load_mb": 1384.32421875,
+        "rss_after_mb": 2461.4140625,
+        "peak_rss_mb": 2461.109375,
+        "gpu_mem_used_mb": 745.0
+      }
+    },
+    {
+      "backend": "ort_cpu",
+      "providers_requested": [
+        "CPUExecutionProvider"
+      ],
+      "providers_active": {
+        "plane_classifier": [
+          "CPUExecutionProvider"
+        ],
+        "head_detector": [
+          "CPUExecutionProvider"
+        ],
+        "head_segmenter": [
+          "CPUExecutionProvider"
+        ]
+      },
+      "stages": {
+        "classify": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 4.403384000056576,
+            "p95_ms": 5.635046399919474,
+            "p99_ms": 6.413300820004219,
+            "mean_ms": 4.531820480002011,
+            "std_ms": 0.5702493558485215,
+            "min_ms": 3.975666999963323,
+            "max_ms": 9.129383999948004
+          },
+          "throughput_img_per_s": 220.6107019798059,
+          "input_resolution": [
+            224,
+            224
+          ],
+          "batch_size": 1
+        },
+        "detect": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 95.47013699994977,
+            "p95_ms": 151.76559304998702,
+            "p99_ms": 225.46514918998264,
+            "mean_ms": 110.49379611999997,
+            "std_ms": 36.001753810786774,
+            "min_ms": 89.0136389999725,
+            "max_ms": 435.1626989999886
+          },
+          "throughput_img_per_s": 9.050116991785444,
+          "input_resolution": [
+            640,
+            640
+          ],
+          "batch_size": 1
+        },
+        "segment": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 203.16728249997595,
+            "p95_ms": 302.8457958500439,
+            "p99_ms": 315.5036441899966,
+            "mean_ms": 222.84835442500022,
+            "std_ms": 47.784263032657215,
+            "min_ms": 187.3978950000037,
+            "max_ms": 548.0198340000015
+          },
+          "throughput_img_per_s": 4.487305453840186,
+          "input_resolution": [
+            352,
+            512
+          ],
+          "batch_size": 1,
+          "note": "fixed central box (segmentation always runs regardless of the detector)"
+        },
+        "measure": {
+          "latency": {
+            "n": 200,
+            "p50_ms": 3.6332835000507657,
+            "p95_ms": 4.154473600016217,
+            "p99_ms": 4.975751020026563,
+            "mean_ms": 3.7043970550024596,
+            "std_ms": 0.30265034038095256,
+            "min_ms": 3.3573010000509385,
+            "max_ms": 5.7133930000645705
+          },
+          "throughput_img_per_s": 269.8749410453013,
+          "input_resolution": [
+            540,
+            800
+          ],
+          "batch_size": 1
+        }
+      },
+      "thresholds": {
+        "temperature": 0.8269710796223418,
+        "temperature_source": "plane_classifier.json",
+        "conf": 0.85,
+        "iou": 0.3,
+        "conf_source": "operating_point.json",
+        "max_det": 10,
+        "crop_margin": 0.1,
+        "mask_threshold": 0.5,
+        "min_mask_area_px": 50,
+        "segmenter_normalize": "imagenet",
+        "segmenter_grayscale": false,
+        "gate_min_probability": 0.0,
+        "head_class": "Brain"
+      },
+      "force_head": true,
+      "full_pipeline": {
+        "latency": {
+          "n": 200,
+          "p50_ms": 312.15594450003437,
+          "p95_ms": 448.5121889499339,
+          "p99_ms": 463.33336226004565,
+          "mean_ms": 338.3490223149943,
+          "std_ms": 54.84005906430701,
+          "min_ms": 288.73515099996894,
+          "max_ms": 480.4823619999752
+        },
+        "throughput_img_per_s": 2.9555181909343746,
+        "stage_mean_ms_within_pipeline": {
+          "classify": 5.63634375,
+          "detect": 104.64746875,
+          "segment": 219.54443750000002,
+          "measure": 4.403781250000001
+        },
+        "head_measurement_status_counts": {
+          "ok": 32
+        },
+        "plane_counts": {
+          "Brain": 29,
+          "Abdomen": 1,
+          "Thorax": 2
+        },
+        "input_resolution": [
+          540,
+          800
+        ],
+        "batch_size": 1
+      },
+      "classifier_batched": {
+        "batch_8": {
+          "throughput_img_per_s": 186.50694122697502,
+          "latency_per_batch_ms": 42.89384591999806,
+          "n_batches": 25
+        },
+        "batch_32": {
+          "throughput_img_per_s": 216.7289236303003,
+          "latency_per_batch_ms": 147.64988199999607,
+          "n_batches": 6
+        }
+      },
+      "memory": {
+        "rss_before_load_mb": 2441.0390625,
+        "rss_after_mb": 2820.6171875,
+        "peak_rss_mb": 2820.38671875,
+        "gpu_mem_used_mb": 121.0
+      }
+    }
+  ],
+  "http": {
+    "port": 32817,
+    "n_requests": 100,
+    "endpoint": "/predict",
+    "force_head": true,
+    "results": {
+      "concurrency_1": {
+        "latency": {
+          "n": 100,
+          "p50_ms": 333.1274005000182,
+          "p95_ms": 471.3025080999955,
+          "p99_ms": 493.6282730799895,
+          "mean_ms": 365.6427615800021,
+          "std_ms": 70.04388367757299,
+          "min_ms": 305.98955799996475,
+          "max_ms": 740.4378549999819
+        },
+        "errors": 0,
+        "throughput_req_per_s": 2.732755485184675,
+        "wall_s": 36.59310192299995
+      },
+      "concurrency_4": {
+        "latency": {
+          "n": 100,
+          "p50_ms": 1295.1928410000164,
+          "p95_ms": 2102.755983500077,
+          "p99_ms": 2463.0390462299924,
+          "mean_ms": 1322.9178126300064,
+          "std_ms": 432.50787611641175,
+          "min_ms": 335.53287200004434,
+          "max_ms": 2748.9619589999847
+        },
+        "errors": 0,
+        "throughput_req_per_s": 2.8132193915484596,
+        "wall_s": 35.54646335100006
+      }
+    },
+    "server_metrics": {
+      "requests_total": 210,
+      "errors_total": 0,
+      "requests_by_endpoint": {
+        "/predict": 210
+      },
+      "predictions_by_plane": {
+        "Thorax": 18,
+        "Abdomen": 10,
+        "Brain": 182
+      },
+      "predictions_by_head_measurement": {
+        "ok": 210
+      },
+      "latency_request_ms": {
+        "n": 210,
+        "p50_ms": 327.3143485000105,
+        "p95_ms": 468.6240601500401,
+        "p99_ms": 493.4256793899908,
+        "mean_ms": 356.1940058761918
+      },
+      "latency_stage_ms": {
+        "classify": {
+          "n": 210,
+          "p50_ms": 5.0295000000000005,
+          "p95_ms": 7.2296499999999995,
+          "p99_ms": 8.7866,
+          "mean_ms": 5.475014285714287
+        },
+        "detect": {
+          "n": 210,
+          "p50_ms": 97.222,
+          "p95_ms": 142.73515,
+          "p99_ms": 163.06163999999998,
+          "mean_ms": 106.49682857142858
+        },
+        "segment": {
+          "n": 210,
+          "p50_ms": 211.8845,
+          "p95_ms": 307.99405,
+          "p99_ms": 336.27149,
+          "mean_ms": 231.85990476190477
+        },
+        "measure": {
+          "n": 210,
+          "p50_ms": 4.006,
+          "p95_ms": 5.82685,
+          "p99_ms": 7.353069999999999,
+          "mean_ms": 4.328880952380953
+        }
+      }
+    },
+    "health": {
+      "status": "ok",
+      "models_loaded": {
+        "plane_classifier": true,
+        "head_detector": true,
+        "head_segmenter": true
+      },
+      "stand_in_models": [],
+      "manifest_id": "68985665657f",
+      "versions": {
+        "fetalvision": "2.0.0",
+        "numpy": "2.4.6",
+        "onnxruntime": null,
+        "cv2": "5.0.0.93",
+        "fastapi": "0.141.1"
+      },
+      "providers": [
+        "CPUExecutionProvider"
+      ],
+      "warmup_ms": {
+        "classify": 7.1,
+        "detect": 110.1,
+        "segment": 259.4
+      },
+      "uptime_s": 76.7
+    },
+    "server_rss_mb": 441.76171875
+  },
+  "stand_in_models": [],
+  "acceptance": {
+    "ort_cuda": {
+      "pipeline_p95_le_200ms": {
+        "metric": "full_pipeline.latency.p95_ms",
+        "op": "<=",
+        "value": 200.0,
+        "actual": 42.40409590004787,
+        "passed": true
+      },
+      "throughput_ge_5": {
+        "metric": "full_pipeline.throughput_img_per_s",
+        "op": ">=",
+        "value": 5.0,
+        "actual": 28.56087801172565,
+        "passed": true
+      }
+    },
+    "ort_cpu": {
+      "pipeline_p95_le_1500ms": {
+        "metric": "full_pipeline.latency.p95_ms",
+        "op": "<=",
+        "value": 1500.0,
+        "actual": 448.5121889499339,
+        "passed": true
+      }
+    }
+  }
+}

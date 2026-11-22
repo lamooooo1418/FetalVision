@@ -1,0 +1,54 @@
+{
+  "model": "plane_classifier",
+  "class_names": [
+    "Abdomen",
+    "Brain",
+    "Femur",
+    "Thorax"
+  ],
+  "input_size": [
+    224,
+    224
+  ],
+  "input_layout": "NHWC",
+  "input_name": "image",
+  "output_name": "probabilities",
+  "preprocessing": "raw 0-255, model includes rescaling",
+  "color_order": "RGB",
+  "temperature": 0.8269710796223418,
+  "temperature_source": "calibration.json",
+  "source_keras": "/workspace/FetalVision/models/p1v2-mnv3s-partial-ft-e40.keras",
+  "source_run": "p1v2-mnv3s-partial-ft-e40",
+  "sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523",
+  "source_sha256": "60657864e6e06863dc461a6ffaf296bb39c41bf8e96aa8a6f97ea14c8c40cffe",
+  "opset": 17,
+  "stand_in": false,
+  "stand_in_kind": null,
+  "export_route": "keras.Model.export(format='onnx')",
+  "onnx_io": {
+    "inputs": [
+      {
+        "name": "image",
+        "shape": [
+          "unk__947",
+          224,
+          224,
+          3
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "probabilities",
+        "shape": [
+          "unk__948",
+          4
+        ]
+      }
+    ],
+    "opset": 17,
+    "ir_version": 8,
+    "n_nodes": 241
+  },
+  "self_parity_max_abs_diff": 8.940696716308594e-07
+}

@@ -1,0 +1,237 @@
+{
+  "split_strategy": "group_shuffle",
+  "seed": 42,
+  "near_duplicate_removal": false,
+  "processed_dir": "/workspace/data/fetal_planes/processed/group_shuffle_nodedup",
+  "raw_csv_rows": 12400,
+  "raw_plane_counts": {
+    "Other": 4213,
+    "Fetal brain": 3092,
+    "Fetal thorax": 1718,
+    "Maternal cervix": 1626,
+    "Fetal femur": 1040,
+    "Fetal abdomen": 711
+  },
+  "selected_4class_rows": 6561,
+  "selected_class_counts": {
+    "Brain": 3092,
+    "Thorax": 1718,
+    "Femur": 1040,
+    "Abdomen": 711
+  },
+  "validated_images": 6561,
+  "after_exact_dedup": {
+    "n_images": 6440,
+    "n_patients": 1158,
+    "class_counts": {
+      "Brain": 3034,
+      "Thorax": 1697,
+      "Femur": 1012,
+      "Abdomen": 697
+    }
+  },
+  "removed": {
+    "missing_files": 0,
+    "corrupt_or_too_small": 0,
+    "ambiguous_filenames": 0,
+    "missing_examples": [],
+    "corrupt_examples": [],
+    "conflicting_label_hashes": 2,
+    "removed_conflicting_labels": 4,
+    "exact_duplicate_hash_groups": 111,
+    "removed_exact_duplicates": 117,
+    "conflicting_examples": [
+      "Patient01272_Plane2_1_of_1",
+      "Patient01272_Plane3_3_of_3",
+      "Patient01450_Plane2_1_of_1",
+      "Patient01450_Plane6_1_of_1"
+    ],
+    "removed_within_patient_near_duplicates": 0,
+    "removed_cross_patient_near_duplicates": 0,
+    "total_removed": 121
+  },
+  "near_duplicates": {
+    "clusters_with_near_duplicates": 298,
+    "images_in_near_duplicate_clusters": 671,
+    "within_patient": {
+      "clusters": 270,
+      "pairs": 446,
+      "images": 614
+    },
+    "across_patients": {
+      "clusters": 28,
+      "pairs": 29,
+      "images": 57
+    },
+    "clusters_with_conflicting_labels": 2,
+    "method": "pHash (8x8 DCT, 64 bit) Hamming distance <= 4 AND dHash (64 bit) Hamming distance <= 6; union-find clustering over all images after exact SHA-256 de-duplication (fetalvision.common.hashing)",
+    "policy": {
+      "within_patient": "keep one image per cluster (first by Image_name)",
+      "across_patients": "keep one copy, preferring the patient in TRAIN (decided after the split), drop the rest",
+      "applied": false
+    },
+    "near_dup_pairs_across_splits_before_cross_patient_removal": 6,
+    "removed_within_patient": 0,
+    "removed_across_patients": 0,
+    "removed_across_patients_by_split_of_removed_copy": {},
+    "removed_examples": []
+  },
+  "split": {
+    "counts": {
+      "train": {
+        "Abdomen": 501,
+        "Brain": 2106,
+        "Femur": 701,
+        "Thorax": 1154
+      },
+      "val": {
+        "Abdomen": 96,
+        "Brain": 465,
+        "Femur": 166,
+        "Thorax": 268
+      },
+      "test": {
+        "Abdomen": 100,
+        "Brain": 463,
+        "Femur": 145,
+        "Thorax": 275
+      }
+    },
+    "percent_within_split": {
+      "train": {
+        "Abdomen": 11.23,
+        "Brain": 47.2,
+        "Femur": 15.71,
+        "Thorax": 25.86
+      },
+      "val": {
+        "Abdomen": 9.65,
+        "Brain": 46.73,
+        "Femur": 16.68,
+        "Thorax": 26.93
+      },
+      "test": {
+        "Abdomen": 10.17,
+        "Brain": 47.1,
+        "Femur": 14.75,
+        "Thorax": 27.98
+      }
+    },
+    "totals": {
+      "train": 4462,
+      "val": 995,
+      "test": 983
+    },
+    "patients": {
+      "train": 810,
+      "val": 174,
+      "test": 174
+    },
+    "n_images": 6440,
+    "n_patients": 1158,
+    "split_fraction_percent": {
+      "train": 69.29,
+      "val": 15.45,
+      "test": 15.26
+    }
+  },
+  "overlap_checks": {
+    "train_val_shared_patients": 0,
+    "train_val_shared_sha256": 0,
+    "test_train_shared_patients": 0,
+    "test_train_shared_sha256": 0,
+    "test_val_shared_patients": 0,
+    "test_val_shared_sha256": 0,
+    "patients_in_multiple_splits": 0,
+    "exact_overlaps_ok": true,
+    "near_dup_pairs_across_splits": 6
+  },
+  "extra_metadata": {
+    "operators": {
+      "Op. 1": 1953,
+      "Op. 2": 1861,
+      "Op. 3": 1413,
+      "Other": 1213
+    },
+    "us_machines": {
+      "Voluson E6": 4280,
+      "Aloka": 1413,
+      "Voluson S10": 507,
+      "Other": 240
+    }
+  },
+  "label_audit_round1": {
+    "n_audited": 100,
+    "n_errors": 0,
+    "error_rate_percent": 0.0,
+    "clopper_pearson_one_sided_upper_percent": 2.951,
+    "confidence": 0.95,
+    "method": "one-sided Clopper-Pearson (exact binomial) upper bound"
+  },
+  "phase1_reproduction": {
+    "expected": {
+      "n_images": 6440,
+      "n_patients": 1158,
+      "removed_conflicting_labels": 4,
+      "removed_exact_duplicates": 117,
+      "counts": {
+        "train": {
+          "Abdomen": 501,
+          "Brain": 2106,
+          "Femur": 701,
+          "Thorax": 1154
+        },
+        "val": {
+          "Abdomen": 96,
+          "Brain": 465,
+          "Femur": 166,
+          "Thorax": 268
+        },
+        "test": {
+          "Abdomen": 100,
+          "Brain": 463,
+          "Femur": 145,
+          "Thorax": 275
+        }
+      },
+      "patients": {
+        "train": 810,
+        "val": 174,
+        "test": 174
+      }
+    },
+    "actual": {
+      "n_images": 6440,
+      "n_patients": 1158,
+      "removed_conflicting_labels": 4,
+      "removed_exact_duplicates": 117,
+      "counts": {
+        "train": {
+          "Abdomen": 501,
+          "Brain": 2106,
+          "Femur": 701,
+          "Thorax": 1154
+        },
+        "val": {
+          "Abdomen": 96,
+          "Brain": 465,
+          "Femur": 166,
+          "Thorax": 268
+        },
+        "test": {
+          "Abdomen": 100,
+          "Brain": 463,
+          "Femur": 145,
+          "Thorax": 275
+        }
+      },
+      "patients": {
+        "train": 810,
+        "val": 174,
+        "test": 174
+      }
+    },
+    "match": true
+  },
+  "figure": "results/phase1/data_audit/figures/class_balance_group_shuffle_nodedup.png"
+}

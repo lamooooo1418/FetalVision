@@ -1,0 +1,4 @@
+{
+  "verification_sheet_1.png": "HC18 annotation verification sheet 1/2 \u2013 20 random images (seed 42), all splits, input 800x540 px, green = filled-ellipse mask contour, orange = derived box",
+  "verification_sheet_2.png": "HC18 annotation verification sheet 2/2 \u2013 20 random images (seed 42), all splits, input 800x540 px, green = filled-ellipse mask contour, orange = derived box"
+}

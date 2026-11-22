@@ -1,0 +1,55 @@
+{
+  "run_name": "detection_train",
+  "phase": "phase2",
+  "split_evaluated": "val",
+  "input_resolution": [
+    640,
+    640
+  ],
+  "n_images": 149,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T18:43:52+00:00",
+  "metrics": {
+    "val_best_pt": {
+      "mAP50": 0.995,
+      "mAP50-95": 0.9633595056644111,
+      "precision": 0.9978787175657577,
+      "recall": 0.9932885906040269,
+      "conf": 0.001,
+      "nms_iou": 0.7
+    },
+    "best_epoch_by_mAP50-95": 34,
+    "last_epoch_row": {
+      "time": 914.519,
+      "train/box_loss": 0.30527,
+      "train/cls_loss": 0.18346,
+      "train/dfl_loss": 0.86928,
+      "metrics/precision(B)": 0.99788,
+      "metrics/recall(B)": 0.99329,
+      "metrics/mAP50(B)": 0.995,
+      "metrics/mAP50-95(B)": 0.96607,
+      "val/box_loss": 0.29084,
+      "val/cls_loss": 0.16655,
+      "val/dfl_loss": 0.84499,
+      "lr/pg0": 0.000165886,
+      "lr/pg1": 0.000165886,
+      "lr/pg2": 0.000165886
+    }
+  },
+  "device": "mps",
+  "amp": false,
+  "wall_clock_seconds": 1073.0,
+  "epochs_planned": 40,
+  "epochs_run": 40,
+  "epochs_final_target": 40,
+  "epochs_reduced_for_time": false,
+  "mean_epoch_seconds": 26.779000000000003,
+  "early_stopped": false,
+  "model": "yolo11n.pt",
+  "imgsz": 640,
+  "batch": 16,
+  "weights": "models/head_detector.pt",
+  "yolo_run_dir": "/workspace/FetalVision/results/phase2/detection/yolo_runs/train",
+  "note": "val metrics use the ultralytics protocol (conf 0.001, NMS IoU 0.7) on the val split; the operating point is chosen by detection.sweep and test metrics by detection.evaluate"
+}

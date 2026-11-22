@@ -1,0 +1,184 @@
+{
+  "run_name": "detection",
+  "phase": "phase2",
+  "split_evaluated": "test",
+  "input_resolution": [
+    640,
+    640
+  ],
+  "n_images": 154,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T18:49:08+00:00",
+  "metrics": {
+    "operating_point": {
+      "conf": 0.85,
+      "nms_iou": 0.3,
+      "match_iou": 0.5,
+      "rule": "max F1 s.t. recall >= 0.98",
+      "val_precision": 1.0,
+      "val_recall": 0.9932885906040269,
+      "val_f1": 0.9966329966329966
+    },
+    "test_at_operating_point": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 154,
+      "fp": 0,
+      "fn": 0,
+      "n_images_with_fp": 0,
+      "n_fn": 0
+    },
+    "fp_breakdown": {
+      "duplicate": 0,
+      "localisation": 0,
+      "background": 0,
+      "definitions": {
+        "duplicate": "IoU>=0.5 with GT (second box on the same head)",
+        "localisation": "0.1<=IoU<0.5",
+        "background": "IoU<0.1"
+      }
+    },
+    "recall_by_gt_size": {
+      "area_fraction_tertiles": {
+        "boundaries": {
+          "small_lt": 0.33286265432098766,
+          "large_ge": 0.4567337962962963
+        },
+        "per_category": {
+          "small": {
+            "n_gt": 59,
+            "tp": 59,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "medium": {
+            "n_gt": 39,
+            "tp": 39,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "large": {
+            "n_gt": 56,
+            "tp": 56,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          }
+        }
+      },
+      "absolute_px_area_tertiles": {
+        "boundaries_px": {
+          "small_lt": 143796.66666666666,
+          "large_ge": 197241.66666666666
+        },
+        "per_category": {
+          "small": {
+            "n_gt": 59,
+            "tp": 59,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "medium": {
+            "n_gt": 39,
+            "tp": 39,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "large": {
+            "n_gt": 56,
+            "tp": 56,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          }
+        }
+      },
+      "hc_mm_tertiles": {
+        "boundaries_mm": {
+          "small_lt": 165.74666666666667,
+          "large_ge": 181.57666666666668
+        },
+        "per_category": {
+          "small": {
+            "n_gt": 52,
+            "tp": 52,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "medium": {
+            "n_gt": 62,
+            "tp": 62,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          },
+          "large": {
+            "n_gt": 40,
+            "tp": 40,
+            "fn": 0,
+            "fp": 0,
+            "recall": 1.0
+          }
+        }
+      }
+    },
+    "ultralytics_val_standard": {
+      "mAP50": 0.995,
+      "mAP50-95": 0.944776203285374,
+      "precision": 0.999641693118059,
+      "recall": 1.0,
+      "per_class_AP50": {
+        "fetal_head": 0.995
+      },
+      "per_class_AP50-95": {
+        "fetal_head": 0.944776203285374
+      },
+      "conf": 0.001,
+      "nms_iou": 0.7
+    },
+    "ultralytics_val_at_operating_point": {
+      "mAP50": 0.995,
+      "mAP50-95": 0.944776203285374,
+      "precision": 1.0,
+      "recall": 1.0,
+      "conf": 0.85,
+      "nms_iou": 0.3,
+      "note": "mAP at the operating-point conf is computed on a truncated PR curve; use the standard protocol for mAP"
+    },
+    "independent_map": {
+      "AP50": 1.0,
+      "AP55": 1.0,
+      "AP60": 1.0,
+      "AP65": 1.0,
+      "AP70": 1.0,
+      "AP75": 1.0,
+      "AP80": 1.0,
+      "AP85": 1.0,
+      "AP90": 0.9792745570264498,
+      "AP95": 0.5547956973160222,
+      "mAP50-95": 0.9534070254342473,
+      "mAP50": 1.0,
+      "n_predictions": 154,
+      "protocol": "top-1 box per image at conf 0.001 (NMS IoU = operating point), 101-point interpolation"
+    },
+    "acceptance": {
+      "mAP50_target": 0.95,
+      "recall_target": 0.98,
+      "mAP50_pass": true,
+      "recall_pass": true
+    }
+  },
+  "device": "mps",
+  "wall_clock_seconds": 19.509799003601074,
+  "weights": "models/head_detector.pt",
+  "imgsz": 640,
+  "demo_video": "results/phase2/detection/demo_video.mp4",
+  "n_demo_images": 12
+}

@@ -1,0 +1,31 @@
+# Phase 2 – HC18 data preparation (masks, boxes, leakage-safe split, YOLO export)
+# Source: HC18 Grand Challenge (van den Heuvel et al. 2018), Zenodo 1327317, CC BY 4.0.
+run_name: hc18_prep
+phase: phase2
+seed: 42
+
+raw_zip: ${FETALVISION_DATA}/hc18/raw/training_set.zip
+raw_dir: ${FETALVISION_DATA}/hc18/raw/training_set
+csv: ${FETALVISION_DATA}/hc18/raw/training_set_pixel_size_and_HC.csv
+processed_dir: ${FETALVISION_DATA}/hc18/processed
+results_dir: results/phase2/hc18_prep
+
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+
+near_dup:
+  max_phash_dist: 4
+  max_dhash_dist: 6
+
+mask:
+  threshold: 127            # annotation outline is 0/255
+  min_outline_coverage: 0.98 # share of outline pixels within max_outline_dist_px of the fitted-ellipse boundary
+  max_outline_dist_px: 2.5   # outline is ~2.8 px thick -> pixels sit <= ~1.5 px from the true curve
+  max_area_rel_diff: 0.05    # |area(contour fill) - area(ellipse fill)| / area(ellipse fill), closed outlines only
+
+verification:
+  n_images: 40             # 2 contact sheets of 20
+  min_box_area_frac: 0.02
+  max_box_area_frac: 0.95

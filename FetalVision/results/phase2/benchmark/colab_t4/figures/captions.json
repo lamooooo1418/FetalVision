@@ -1,0 +1,3 @@
+{
+  "latency_by_stage.png": "Per-stage and full-pipeline latency (colab_t4); bars p50, whiskers to p95; log scale; batch 1; N=200; images /content/data/hc18/raw/parity_samples; stand-ins: []"
+}

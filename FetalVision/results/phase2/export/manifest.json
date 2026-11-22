@@ -1,0 +1,106 @@
+{
+  "manifest_id": "68985665657f",
+  "fetalvision_version": "2.0.0",
+  "models": {
+    "plane_classifier": {
+      "path": "/workspace/FetalVision/models/plane_classifier.onnx",
+      "exists": true,
+      "size_bytes": 3789634,
+      "sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523",
+      "stand_in": false,
+      "source": "/workspace/FetalVision/models/p1v2-mnv3s-partial-ft-e40.keras",
+      "meta_sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523"
+    },
+    "head_detector": {
+      "path": "/workspace/FetalVision/models/head_detector.onnx",
+      "exists": true,
+      "size_bytes": 10663466,
+      "sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1",
+      "stand_in": false,
+      "source": "/workspace/FetalVision/models/head_detector.pt",
+      "meta_sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1"
+    },
+    "head_segmenter": {
+      "path": "/workspace/FetalVision/models/head_segmenter.onnx",
+      "exists": true,
+      "size_bytes": 26495329,
+      "sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092",
+      "stand_in": false,
+      "source": "/workspace/FetalVision/models/head_segmenter.pt",
+      "meta_sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092"
+    }
+  },
+  "stand_in_models": [],
+  "class_names": [
+    "Abdomen",
+    "Brain",
+    "Femur",
+    "Thorax"
+  ],
+  "thresholds": {
+    "temperature": 0.8269710796223418,
+    "temperature_source": "plane_classifier.json",
+    "conf": 0.85,
+    "iou": 0.3,
+    "conf_source": "operating_point.json",
+    "max_det": 10,
+    "crop_margin": 0.1,
+    "mask_threshold": 0.5,
+    "min_mask_area_px": 50,
+    "segmenter_normalize": "imagenet",
+    "segmenter_grayscale": false,
+    "gate_min_probability": 0.0,
+    "head_class": "Brain"
+  },
+  "input_resolution": {
+    "classifier_hw": [
+      224,
+      224
+    ],
+    "detector_imgsz": 640,
+    "segmenter_wh": [
+      512,
+      352
+    ]
+  },
+  "providers_requested": [
+    "CPUExecutionProvider"
+  ],
+  "providers_active": {
+    "plane_classifier": [
+      "CPUExecutionProvider"
+    ],
+    "head_detector": [
+      "CPUExecutionProvider"
+    ],
+    "head_segmenter": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "versions": {
+    "fetalvision": "2.0.0",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.31.1",
+    "onnxruntime-gpu": null,
+    "onnx": "1.23.2",
+    "cv2": "5.0.0.93",
+    "torch": "2.15.0",
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "ultralytics": "8.4.208",
+    "segmentation_models_pytorch": "0.6.0",
+    "fastapi": "0.162.2",
+    "uvicorn": "0.54.0"
+  },
+  "hardware": {
+    "os": "Darwin 24.3.0",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "cpu_model": "Apple M4 Pro",
+    "cpu_cores_logical": 14,
+    "ram_gb": 24.0,
+    "gpu": null,
+    "cpu_cores_physical": 14
+  },
+  "notes": []
+}

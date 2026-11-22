@@ -1,0 +1,64 @@
+{
+ "run": "p1v2-mnv3s-partial-ft-e40",
+ "n_errors": 27,
+ "categories": {
+  "adjacent-trunk-plane": {
+   "n": 11,
+   "error_ids": [
+    1,
+    2,
+    4,
+    7,
+    16,
+    17,
+    18,
+    20,
+    22,
+    24,
+    27
+   ],
+   "description": "Transverse trunk section at or near the thoraco-abdominal junction (oblique cut showing both ribs/heart and liver/stomach); Abdomen and Thorax are confused in both directions"
+  },
+  "round-rim-skull-like": {
+   "n": 6,
+   "error_ids": [
+    3,
+    5,
+    19,
+    21,
+    23,
+    25
+   ],
+   "description": "Round cross-section with a bright continuous rim (ribs, spine or stomach wall) that resembles a skull outline; predicted Brain, or a Brain plane whose rim is interrupted"
+  },
+  "bone-like-structure": {
+   "n": 7,
+   "error_ids": [
+    6,
+    9,
+    12,
+    13,
+    26,
+    14,
+    15
+   ],
+   "description": "A prominent long, bright bone-like structure (rib, spine, diaphragm) attracts the Femur class, or a femur image with a round soft-tissue mass next to the bone attracts Brain"
+  },
+  "atypical-acquisition": {
+   "n": 2,
+   "error_ids": [
+    10,
+    11
+   ],
+   "description": "Oblique head section or a limb occluding part of the head (hand in front of the face)"
+  },
+  "low-image-quality": {
+   "n": 1,
+   "error_ids": [
+    8
+   ],
+   "description": "Very grainy, low-contrast image (cardiac preset, high gain) with no recognisable landmarks"
+  }
+ },
+ "reviewer": "team visual review (non-clinical)"
+}

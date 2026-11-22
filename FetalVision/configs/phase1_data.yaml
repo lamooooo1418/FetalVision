@@ -1,0 +1,30 @@
+# Phase 1 (v2) data preparation – single source of truth for the FETAL_PLANES_DB 4-class splits.
+# python -m fetalvision.data.prepare_planes --config configs/phase1_data.yaml [--verify-phase1] [--split-strategy ...] [--near-dup on|off]
+seed: 42
+raw_dir: ${FETALVISION_DATA}/fetal_planes/raw            # Zenodo zip extracted somewhere below (FETAL_PLANES_DB/Images, *_data.csv)
+processed_root: ${FETALVISION_DATA}/fetal_planes/processed  # output: processed/<split_strategy>[_nodedup]/
+results_dir: results/phase1/data_audit
+hash_workers: 10
+
+# group_shuffle   = exact replica of the original Phase 1 split (GroupShuffleSplit .30 then .50, Patient_num as string)
+# stratified_group = StratifiedGroupKFold(10) folds {0,1,2} -> hold-out, then StratifiedGroupKFold(2) -> val/test
+split_strategy: group_shuffle
+split:
+  group_shuffle: {test_size_1: 0.30, test_size_2: 0.50}
+  stratified_group: {n_splits: 10, holdout_folds: [0, 1, 2]}
+
+near_duplicates:
+  enabled: true            # false -> processed/<strategy>_nodedup (Phase 1 replica)
+  max_phash_dist: 4        # pHash Hamming distance (bits)
+  max_dhash_dist: 6        # dHash Hamming distance (bits); BOTH conditions must hold
+  within_patient_policy: keep_first_by_filename
+  cross_patient_policy: keep_one_prefer_train
+
+# First-round manual label audit (Phase 1): 100 random images, 0 label errors.
+label_audit: {n_audited: 100, n_errors: 0, confidence: 0.95}
+# Second-round audit sample: 25 images/class from val+test (seed) + every test/val error of the kept Phase 1 model.
+label_audit_sample:
+  per_class: 25
+  predictions:
+    - results/phase1/p1-mnv3s-partial-ft-original/predictions_test.csv
+    - results/phase1/p1-mnv3s-partial-ft-original/predictions_val.csv

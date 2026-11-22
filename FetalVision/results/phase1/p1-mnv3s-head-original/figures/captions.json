@@ -1,0 +1,4 @@
+{
+  "confusion_matrix_test.png": "Confusion matrix on the test split (n=983, input 224x224).",
+  "reliability_test.png": "Reliability diagram on the test split (10 equal-width bins, input 224x224); ECE=0.0363."
+}

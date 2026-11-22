@@ -1,0 +1,24 @@
+# data are never committed (dataset licences; patient imagery)
+data/
+*.zip
+# large weights
+*.keras
+*.h5
+*.pt
+*.pth
+!models/*.onnx
+wandb/
+runs/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+reports/**/*.aux
+reports/**/*.log
+reports/**/*.out
+reports/**/_minted*
+.venv/
+.DS_Store
+
+# third-party pretrained weights downloaded at runtime
+yolo11n.pt
+mobile_sam.pt

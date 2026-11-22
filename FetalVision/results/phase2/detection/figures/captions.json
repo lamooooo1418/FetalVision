@@ -1,0 +1,6 @@
+{
+  "sweep_prf_vs_conf.png": "Fetal-head detector sweep \u2013 VAL split (149 images), imgsz 640, raw conf 0.001, match IoU 0.5; rule: max F1 s.t. recall >= 0.98 -> conf 0.85, NMS IoU 0.3",
+  "gallery_lowest_iou_detections.png": "6 lowest-IoU true positives (fewer than 6 FP+FN) \u2013 TEST split (154 images, 800x540 px, inference imgsz 640, conf >= 0.85, NMS IoU 0.3, match IoU 0.5)",
+  "demo_gallery.png": "Inference demo: 12 random test images (seed 42) \u2013 TEST split (154 images, 800x540 px, inference imgsz 640, conf >= 0.85, NMS IoU 0.3, match IoU 0.5); orange GT, green TP, red FP",
+  "demo_video.mp4": "demo_video.mp4: 30 TEST-split HC18 still frames at 3 fps (10 s), 800x540 px. This is a SYNTHETIC sequence assembled from independent still images (HC18 contains no video); boxes and scores come from the YOLO11n fetal-head detector at the operating point (imgsz 640, conf >= 0.85, NMS IoU 0.3). Green = prediction; no ground truth is drawn. Seed 42."
+}

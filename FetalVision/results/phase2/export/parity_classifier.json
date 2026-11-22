@@ -1,0 +1,60 @@
+{
+  "kind": "classifier",
+  "onnx": "/workspace/FetalVision/models/plane_classifier.onnx",
+  "native": "/workspace/FetalVision/models/p1v2-mnv3s-partial-ft-e40.keras",
+  "native_framework": "keras 3.15.1",
+  "images_dir": "/workspace/data/hc18/raw/parity_samples",
+  "n_images": 48,
+  "n_real": 32,
+  "n_noise": 16,
+  "max_abs_diff": 2.3245811462402344e-06,
+  "mean_abs_diff": 2.487145819828525e-07,
+  "argmax_agreement": 1.0,
+  "max_abs_diff_real": 1.9669532775878906e-06,
+  "max_abs_diff_noise": 2.3245811462402344e-06,
+  "latency_native": {
+    "p50_ms": 40.84141651401296,
+    "p95_ms": 41.92782494646963,
+    "mean_ms": 41.01226558244283
+  },
+  "latency_onnx": {
+    "p50_ms": 1.2152704584877938,
+    "p95_ms": 1.2728540721582249,
+    "mean_ms": 1.2145329140669976
+  },
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "stand_in": false,
+  "stand_in_kind": null,
+  "criteria": {
+    "max_abs_diff_lt": 0.0001,
+    "argmax_agreement_eq": 1.0
+  },
+  "passed": true,
+  "versions": {
+    "fetalvision": "2.0.0",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.31.1",
+    "onnxruntime-gpu": null,
+    "onnx": "1.23.2",
+    "cv2": "5.0.0.93",
+    "torch": "2.15.0",
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "ultralytics": "8.4.208",
+    "segmentation_models_pytorch": "0.6.0",
+    "fastapi": "0.162.2",
+    "uvicorn": "0.54.0"
+  },
+  "hardware": {
+    "os": "Darwin 24.3.0",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "cpu_model": "Apple M4 Pro",
+    "cpu_cores_logical": 14,
+    "ram_gb": 24.0,
+    "gpu": null,
+    "cpu_cores_physical": 14
+  }
+}

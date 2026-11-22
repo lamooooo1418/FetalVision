@@ -1,0 +1,72 @@
+{
+  "kind": "detector",
+  "onnx": "/workspace/FetalVision/models/head_detector.onnx",
+  "native": "/workspace/FetalVision/models/head_detector.pt",
+  "native_framework": "ultralytics 8.4.208 / torch 2.15.0",
+  "images_dir": "/workspace/data/hc18/raw/parity_samples",
+  "n_images": 48,
+  "imgsz": 640,
+  "conf": 0.85,
+  "iou": 0.3,
+  "n_classes": 1,
+  "raw_output_max_abs_diff": 0.00225830078125,
+  "raw_output_mean_max_abs_diff": 0.001274426778157552,
+  "raw_output_max_abs_diff_relative_to_imgsz": 3.528594970703125e-06,
+  "native_rect": false,
+  "n_images_with_boxes_both": 32,
+  "n_images_native_boxes": 32,
+  "n_images_onnx_boxes": 32,
+  "box_count_agreement": 1.0,
+  "best_box_iou_min": 0.9988560080528259,
+  "best_box_iou_mean": 0.9999640230089426,
+  "best_box_score_max_abs_diff": 1.7881393432617188e-07,
+  "all_boxes_iou_min": 0.9988560080528259,
+  "all_boxes_iou_mean": 0.9999640230089426,
+  "all_boxes_score_max_abs_diff": 1.7881393432617188e-07,
+  "n_boxes_native_total": 32,
+  "latency_native_predict": {
+    "p50_ms": 27.418666519224644,
+    "p95_ms": 28.701316911610775,
+    "mean_ms": 27.5012134637412
+  },
+  "latency_onnx_decode": {
+    "p50_ms": 15.649499982828274,
+    "p95_ms": 17.02984535950236,
+    "mean_ms": 15.768673541363873
+  },
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "stand_in": false,
+  "stand_in_kind": null,
+  "criteria": {
+    "best_box_iou_ge": 0.99,
+    "best_box_score_diff_lt": 0.001
+  },
+  "passed": true,
+  "versions": {
+    "fetalvision": "2.0.0",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.31.1",
+    "onnxruntime-gpu": null,
+    "onnx": "1.23.2",
+    "cv2": "5.0.0.93",
+    "torch": "2.15.0",
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "ultralytics": "8.4.208",
+    "segmentation_models_pytorch": "0.6.0",
+    "fastapi": "0.162.2",
+    "uvicorn": "0.54.0"
+  },
+  "hardware": {
+    "os": "Darwin 24.3.0",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "cpu_model": "Apple M4 Pro",
+    "cpu_cores_logical": 14,
+    "ram_gb": 24.0,
+    "gpu": null,
+    "cpu_cores_physical": 14
+  }
+}

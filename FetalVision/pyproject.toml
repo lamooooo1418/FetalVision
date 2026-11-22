@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fetalvision"
+version = "2.0.0"
+description = "Fetal ultrasound plane classification, head detection, head segmentation and HC measurement"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "pyyaml", "pillow", "imagehash", "scipy", "scikit-learn", "matplotlib"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

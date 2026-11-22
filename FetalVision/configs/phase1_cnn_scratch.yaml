@@ -1,0 +1,23 @@
+# Phase 1 v2 – CNN from scratch (Phase 1 architecture), augmentation ON
+run_name: p1v2-cnn-scratch
+model: {type: cnn_scratch, dropout: 0.3}
+training: {optimizer: adam, lr: 0.001, epochs: 20, early_stopping_patience: 5}
+seed: 42
+phase: phase1
+models_dir: models
+results_root: results
+data:
+  processed_dir: ${FETALVISION_DATA}/fetal_planes/processed/group_shuffle
+  image_size: [224, 224]
+  batch_size: 32
+  cache: true
+augmentation:              # Phase 1 pipeline, training split only
+  enabled: true
+  rotation: 0.014          # fraction of 2*pi (~5 degrees)
+  zoom: 0.05
+  translation: 0.05
+  contrast: 0.10
+  fill_mode: reflect
+class_weight: none         # balanced -> sklearn 'balanced' weights computed on the train split | none
+hardware: {intra_op_threads: 10, inter_op_threads: 2}
+debug: {max_steps: 0}      # >0 -> smoke run on N batches per split (never for reported numbers)

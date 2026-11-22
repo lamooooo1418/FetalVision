@@ -1,0 +1,15 @@
+{
+  "learning_curves.png": "U-Net (mobilenet_v2) fetal-head segmentation \u2013 learning curves; train split (696 imgs), val split (149 imgs), input 512x352, threshold 0.5, batch 8, seed 42, device mps; best val Dice 0.9747 @ epoch 13",
+  "hc_bland_altman_unet_full.png": "U-Net (full image) head circumference: predicted vs GT and Bland\u2013Altman \u2013 TEST split (154 images), network input 512x352, metrics at 800x540 px, threshold 0.5; HC via ellipse fit + Ramanujan",
+  "hc_bland_altman_unet_detector_crop.png": "Detector-box -> U-Net chain head circumference: predicted vs GT and Bland\u2013Altman \u2013 TEST split (154 images), network input 512x352, metrics at 800x540 px, threshold 0.5; crop margin 10%",
+  "failure_gallery_unet_full.png": "6 worst-Dice cases, U-Net full image \u2013 TEST split (154 images), network input 512x352, metrics at 800x540 px, threshold 0.5; columns: image | GT | prediction | fitted ellipse (green) vs GT contour (orange)",
+  "failure_cases_unet_full": {
+    "096_HC.png": "Dice 0.808: under-segmentation (0.68x GT area): part of the head is missed (weak/low-contrast skull edge); HC error -13.6 mm (rule-based statement)",
+    "002_HC.png": "Dice 0.883: under-segmentation (0.82x GT area): part of the head is missed (weak/low-contrast skull edge); mask displaced by 31 px from the GT centroid; HC error -5.5 mm (rule-based statement)",
+    "133_4HC.png": "Dice 0.915: mask displaced by 21 px from the GT centroid; HC error -3.4 mm (rule-based statement)",
+    "081_HC.png": "Dice 0.929: boundary inaccuracy only (shape/area roughly right); HC error +1.3 mm (rule-based statement)",
+    "060_HC.png": "Dice 0.934: under-segmentation (0.88x GT area): part of the head is missed (weak/low-contrast skull edge); HC error -4.8 mm (rule-based statement)",
+    "007_HC.png": "Dice 0.935: boundary inaccuracy only (shape/area roughly right); HC error -0.5 mm (rule-based statement)"
+  },
+  "dice_histogram.png": "Dice distribution \u2013 TEST split (154 images), network input 512x352, metrics at 800x540 px, threshold 0.5"
+}

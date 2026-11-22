@@ -1,0 +1,24 @@
+run_name: hc18_prep
+phase: phase2
+seed: 42
+raw_zip: /workspace/data/hc18/raw/training_set.zip
+raw_dir: /workspace/data/hc18/raw/training_set
+csv: /workspace/data/hc18/raw/training_set_pixel_size_and_HC.csv
+processed_dir: /workspace/data/hc18/processed
+results_dir: results/phase2/hc18_prep
+split:
+  train: 0.7
+  val: 0.15
+  test: 0.15
+near_dup:
+  max_phash_dist: 4
+  max_dhash_dist: 6
+mask:
+  threshold: 127
+  min_outline_coverage: 0.98
+  max_outline_dist_px: 2.5
+  max_area_rel_diff: 0.05
+verification:
+  n_images: 40
+  min_box_area_frac: 0.02
+  max_box_area_frac: 0.95

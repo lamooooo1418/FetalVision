@@ -1,0 +1,237 @@
+{
+  "run_name": "segmentation",
+  "phase": "phase2",
+  "split_evaluated": "test",
+  "input_resolution": [
+    512,
+    352
+  ],
+  "n_images": 154,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T19:04:37+00:00",
+  "metrics": {
+    "unet_full_image": {
+      "n": 154,
+      "dice": {
+        "mean": 0.9716400051927516,
+        "std": 0.019895376496382924,
+        "median": 0.9767775620242642,
+        "min": 0.8078683928067121
+      },
+      "iou": {
+        "mean": 0.9455162113363182,
+        "std": 0.03479956240714942,
+        "median": 0.9546092613208068,
+        "min": 0.677667119915925
+      },
+      "pixel_accuracy_mean": 0.9859555815657653,
+      "hausdorff95_px": {
+        "mean": 12.38511453607366,
+        "median": 10.885164807134505,
+        "max": 91.63811876950074
+      },
+      "share_dice_lt_0.9": 0.012987012987012988,
+      "share_dice_ge_0.95": 0.9285714285714286,
+      "hc": {
+        "mae_mm": 2.104532440776953,
+        "median_ae_mm": 1.5729250026572075,
+        "mean_signed_diff_mm": -1.1988882384043344,
+        "std_signed_diff_mm": 2.5266443154927343,
+        "share_abs_err_le_3mm": 0.7272727272727273,
+        "max_ae_mm": 13.554067169792745,
+        "n_valid": 154,
+        "n_invalid": 0
+      },
+      "mask_mAP": {
+        "AP75": 0.9900990099009901,
+        "mAP50-95": 0.9339705944219064,
+        "mAP50": 1.0,
+        "score_definition": "mean foreground probability inside the predicted mask",
+        "n_predictions": 154
+      },
+      "bland_altman": {
+        "bias_mm": -1.1988882384043344,
+        "loa_low_mm": -6.167268473657121,
+        "loa_high_mm": 3.7694919968484513
+      }
+    },
+    "unet_detector_crop_chain": {
+      "n": 154,
+      "dice": {
+        "mean": 0.966047254479862,
+        "std": 0.03381061864900835,
+        "median": 0.976592176727439,
+        "min": 0.7727596327984932
+      },
+      "iou": {
+        "mean": 0.9361727415977046,
+        "std": 0.0566379022141985,
+        "median": 0.9542551421045196,
+        "min": 0.6296725999657745
+      },
+      "pixel_accuracy_mean": 0.9842140967413787,
+      "hausdorff95_px": {
+        "mean": 15.818530276058349,
+        "median": 11.031021088594027,
+        "max": 126.15070352558483
+      },
+      "share_dice_lt_0.9": 0.032467532467532464,
+      "share_dice_ge_0.95": 0.8831168831168831,
+      "hc": {
+        "mae_mm": 2.707602511961187,
+        "median_ae_mm": 2.288914133290305,
+        "mean_signed_diff_mm": -1.9730476124892506,
+        "std_signed_diff_mm": 3.311760665708173,
+        "share_abs_err_le_3mm": 0.6493506493506493,
+        "max_ae_mm": 23.683431772422367,
+        "n_valid": 154,
+        "n_invalid": 0
+      },
+      "mask_mAP": {
+        "AP75": 0.9800026055237101,
+        "mAP50-95": 0.9159436568919869,
+        "mAP50": 1.0,
+        "score_definition": "mean foreground probability inside the predicted mask",
+        "n_predictions": 154
+      },
+      "n_fallback_full_image": 0,
+      "crop_margin": 0.1,
+      "note": "the U-Net was trained on full images; crops are resized to the network input, so the head appears larger than in training \u2013 reported as the integrated-pipeline number",
+      "bland_altman": {
+        "bias_mm": -1.9730476124892506,
+        "loa_low_mm": -8.48527655365832,
+        "loa_high_mm": 4.539181328679818
+      }
+    },
+    "sam_baseline_test": {
+      "sam_gt_box": {
+        "dice_mean": 0.9166631742887549,
+        "dice_std": 0.1268282420875207,
+        "dice_median": 0.9428782220364129,
+        "dice_min": 0.12827645475820582,
+        "iou_mean": 0.8622162811700714,
+        "hc_mae_mm": 8.082735006085178,
+        "hc_median_ae_mm": 4.772655596592934,
+        "share_abs_err_le_3mm": 0.35714285714285715,
+        "share_dice_lt_0.9": 0.09740259740259741
+      },
+      "sam_det_box": {
+        "dice_mean": 0.9195734638292835,
+        "dice_std": 0.10842656897572402,
+        "dice_median": 0.9430730771112374,
+        "dice_min": 0.133837531231983,
+        "iou_mean": 0.8633292312299582,
+        "hc_mae_mm": 8.202901904840731,
+        "hc_median_ae_mm": 4.627689826980273,
+        "share_abs_err_le_3mm": 0.35714285714285715,
+        "share_dice_lt_0.9": 0.12337662337662338
+      }
+    },
+    "acceptance": {
+      "dice_target": 0.95,
+      "hc_mae_target_mm": 3.0,
+      "dice_pass_full": true,
+      "hc_mae_pass_full": true,
+      "dice_pass_chain": true,
+      "hc_mae_pass_chain": true
+    },
+    "worst_cases_unet_full": [
+      {
+        "filename": "096_HC.png",
+        "dice": 0.8078683928067121,
+        "iou": 0.677667119915925,
+        "hc_pred_mm": 62.085932830207256,
+        "hc_gt_mm": 75.64,
+        "abs_err_mm": 13.554067169792745
+      },
+      {
+        "filename": "002_HC.png",
+        "dice": 0.8828916811928963,
+        "iou": 0.7903366811696516,
+        "hc_pred_mm": 63.21177698468098,
+        "hc_gt_mm": 68.75,
+        "abs_err_mm": 5.538223015319019
+      },
+      {
+        "filename": "133_4HC.png",
+        "dice": 0.9145392138594021,
+        "iou": 0.8425354702229085,
+        "hc_pred_mm": 93.64789054117057,
+        "hc_gt_mm": 97.0,
+        "abs_err_mm": 3.352109458829432
+      },
+      {
+        "filename": "081_HC.png",
+        "dice": 0.9285933393578718,
+        "iou": 0.8667048409064834,
+        "hc_pred_mm": 73.16817160757887,
+        "hc_gt_mm": 71.91,
+        "abs_err_mm": 1.2581716075788734
+      },
+      {
+        "filename": "060_HC.png",
+        "dice": 0.9338495068818269,
+        "iou": 0.8759077755999704,
+        "hc_pred_mm": 75.89870702206508,
+        "hc_gt_mm": 80.7,
+        "abs_err_mm": 4.801292977934921
+      },
+      {
+        "filename": "007_HC.png",
+        "dice": 0.9351624770080949,
+        "iou": 0.8782208147406139,
+        "hc_pred_mm": 62.26164426906493,
+        "hc_gt_mm": 62.8,
+        "abs_err_mm": 0.5383557309350664
+      }
+    ]
+  },
+  "device": "mps",
+  "wall_clock_seconds": 13.947443962097168,
+  "weights": "models/head_segmenter.pt",
+  "checkpoint_meta": {
+    "model": {
+      "arch": "Unet",
+      "encoder": "mobilenet_v2",
+      "encoder_weights": "imagenet",
+      "in_channels": 3,
+      "classes": 1
+    },
+    "input_size_wh": [
+      512,
+      352
+    ],
+    "original_size_wh": [
+      800,
+      540
+    ],
+    "normalisation": "imagenet mean/std on grayscale replicated to 3 channels",
+    "threshold": 0.5,
+    "seed": 42,
+    "git_commit": "unknown",
+    "best_epoch": 13,
+    "best_val_dice": 0.9747277454241811,
+    "model_name": "head_segmenter",
+    "framework": "segmentation_models_pytorch",
+    "arch": "Unet",
+    "encoder": "mobilenet_v2",
+    "input_size": [
+      512,
+      352
+    ],
+    "input_size_order": "WH",
+    "normalize": "imagenet",
+    "stand_in": false,
+    "stand_in_kind": null,
+    "weights_format": "torch state_dict of smp.Unet (load with fetalvision.segmentation.model.load_checkpoint)"
+  },
+  "detector_weights": "models/head_detector.pt",
+  "operating_point": {
+    "conf": 0.85,
+    "iou": 0.3,
+    "imgsz": 640
+  },
+  "threshold": 0.5,
+  "hc_method": "largest component -> cv2.fitEllipse on the network-resolution mask -> axes rescaled to 800x540 -> Ramanujan perimeter x pixel size"
+}

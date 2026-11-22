@@ -1,0 +1,42 @@
+run_name: p1v2-mnv3s-partial-ft-e25
+model:
+  type: mobilenetv3s
+  mode: partial
+  weights: imagenet
+  dropout: 0.3
+  partial_last_n: 30
+training:
+  stage1:
+    optimizer: adam
+    lr: 0.001
+    epochs: 15
+    early_stopping_patience: 4
+  stage2:
+    optimizer: adam
+    lr: 1.0e-05
+    epochs: 25
+    early_stopping_patience: 4
+seed: 42
+phase: phase1
+models_dir: models
+results_root: results
+data:
+  processed_dir: /workspace/data/fetal_planes/processed/group_shuffle
+  image_size:
+  - 224
+  - 224
+  batch_size: 32
+  cache: true
+augmentation:
+  enabled: true
+  rotation: 0.014
+  zoom: 0.05
+  translation: 0.05
+  contrast: 0.1
+  fill_mode: reflect
+class_weight: none
+hardware:
+  intra_op_threads: 10
+  inter_op_threads: 2
+debug:
+  max_steps: 0

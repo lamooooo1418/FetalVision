@@ -1,0 +1,210 @@
+{
+  "run_name": "m4pro_cpu",
+  "phase": "phase2",
+  "split_evaluated": "benchmark_images",
+  "input_resolution": [
+    540,
+    800
+  ],
+  "n_images": 32,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T22:24:10+00:00",
+  "metrics": {
+    "ort_cpu/classify/p50_ms": 1.4791875146329403,
+    "ort_cpu/classify/p95_ms": 1.647131907520815,
+    "ort_cpu/classify/p99_ms": 1.7558399133849885,
+    "ort_cpu/classify/throughput_img_per_s": 667.1345859501619,
+    "ort_cpu/detect/p50_ms": 13.573479489423335,
+    "ort_cpu/detect/p95_ms": 14.759760082233697,
+    "ort_cpu/detect/p99_ms": 16.66205878602339,
+    "ort_cpu/detect/throughput_img_per_s": 72.81801167513402,
+    "ort_cpu/segment/p50_ms": 26.50375000666827,
+    "ort_cpu/segment/p95_ms": 34.64345001848412,
+    "ort_cpu/segment/p99_ms": 39.88506915629841,
+    "ort_cpu/segment/throughput_img_per_s": 37.12763648668539,
+    "ort_cpu/measure/p50_ms": 0.6803124852012843,
+    "ort_cpu/measure/p95_ms": 1.112736016511917,
+    "ort_cpu/measure/p99_ms": 1.1782067117746917,
+    "ort_cpu/measure/throughput_img_per_s": 1372.8363137550973,
+    "ort_cpu/full_pipeline/p50_ms": 46.19562497828156,
+    "ort_cpu/full_pipeline/p95_ms": 51.98756453755777,
+    "ort_cpu/full_pipeline/p99_ms": 55.050629602046676,
+    "ort_cpu/full_pipeline/throughput_img_per_s": 21.35181869255601,
+    "ort_cpu/peak_rss_mb": 1417.921875,
+    "ort_cpu/classify_batch_8/throughput_img_per_s": 1225.2336850444992,
+    "ort_cpu/classify_batch_32/throughput_img_per_s": 1432.7511819655263,
+    "ort_coreml/classify/p50_ms": 3.2928125001490116,
+    "ort_coreml/classify/p95_ms": 4.135122889420016,
+    "ort_coreml/classify/p99_ms": 4.908311308827251,
+    "ort_coreml/classify/throughput_img_per_s": 293.23705533295794,
+    "ort_coreml/detect/p50_ms": 7.278229022631422,
+    "ort_coreml/detect/p95_ms": 8.801751743885681,
+    "ort_coreml/detect/p99_ms": 9.51914580655284,
+    "ort_coreml/detect/throughput_img_per_s": 134.1914053336827,
+    "ort_coreml/segment/p50_ms": 5.817228986416012,
+    "ort_coreml/segment/p95_ms": 6.454649692750534,
+    "ort_coreml/segment/p99_ms": 6.773039168911055,
+    "ort_coreml/segment/throughput_img_per_s": 170.56780102193315,
+    "ort_coreml/measure/p50_ms": 0.7606875151395798,
+    "ort_coreml/measure/p95_ms": 1.2864660558989263,
+    "ort_coreml/measure/p99_ms": 1.4766434900229786,
+    "ort_coreml/measure/throughput_img_per_s": 1194.8623881184205,
+    "ort_coreml/full_pipeline/p50_ms": 18.72752050985582,
+    "ort_coreml/full_pipeline/p95_ms": 21.39168122084811,
+    "ort_coreml/full_pipeline/p99_ms": 26.096614458947418,
+    "ort_coreml/full_pipeline/throughput_img_per_s": 52.3166305464778,
+    "ort_coreml/peak_rss_mb": 1417.921875,
+    "ort_coreml/classify_batch_8/throughput_img_per_s": 694.1042200444654,
+    "ort_coreml/classify_batch_32/throughput_img_per_s": 1022.5888271491306,
+    "native/classify/p50_ms": 44.26614599651657,
+    "native/classify/p95_ms": 53.84051663859282,
+    "native/classify/p99_ms": 56.90499409800397,
+    "native/classify/throughput_img_per_s": 21.857586479547805,
+    "native/detect/p50_ms": 37.40958301932551,
+    "native/detect/p95_ms": 48.165777086978764,
+    "native/detect/p99_ms": 58.06553886970518,
+    "native/detect/throughput_img_per_s": 25.601416475083987,
+    "native/segment/p50_ms": 121.40629201894626,
+    "native/segment/p95_ms": 134.83298158389516,
+    "native/segment/p99_ms": 143.70673003548293,
+    "native/segment/throughput_img_per_s": 8.222804367067404,
+    "http/server_rss_mb": 650.21875,
+    "http/concurrency_1/p50_ms": 57.758729002671316,
+    "http/concurrency_1/p95_ms": 67.54788570688105,
+    "http/concurrency_1/p99_ms": 72.75097048492172,
+    "http/concurrency_1/throughput_req_per_s": 16.9621417566128,
+    "http/concurrency_4/p50_ms": 222.222457989119,
+    "http/concurrency_4/p95_ms": 291.49938392220065,
+    "http/concurrency_4/p99_ms": 398.3114934636984,
+    "http/concurrency_4/throughput_req_per_s": 16.732606500142722
+  },
+  "conditions": {
+    "hardware": {
+      "os": "Darwin 24.3.0",
+      "machine": "arm64",
+      "python": "3.12.6",
+      "cpu_model": "Apple M4 Pro",
+      "cpu_cores_logical": 14,
+      "ram_gb": 24.0,
+      "gpu": null,
+      "cpu_cores_physical": 14
+    },
+    "versions": {
+      "fetalvision": "2.0.0",
+      "numpy": "2.5.4",
+      "onnxruntime": "1.31.1",
+      "onnxruntime-gpu": null,
+      "onnx": "1.23.2",
+      "cv2": "5.0.0.93",
+      "torch": "2.15.0",
+      "tensorflow": "2.21.0",
+      "keras": "3.15.1",
+      "ultralytics": "8.4.208",
+      "segmentation_models_pytorch": "0.6.0",
+      "fastapi": "0.162.2",
+      "uvicorn": "0.54.0"
+    },
+    "ort_available_providers": [
+      "CoreMLExecutionProvider",
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "images": "/workspace/data/hc18/raw/parity_samples",
+    "n_images": 32,
+    "image_resolution_hw": [
+      540,
+      800
+    ],
+    "batch_size": 1,
+    "n_warmup": 20,
+    "n_iters": 200,
+    "ort_intra_op_threads": "default",
+    "input_resolution": {
+      "classifier_hw": [
+        224,
+        224
+      ],
+      "detector_imgsz": 640,
+      "segmenter_wh": [
+        512,
+        352
+      ]
+    },
+    "thresholds": {
+      "temperature": 0.8269710796223418,
+      "temperature_source": "plane_classifier.json",
+      "conf": 0.85,
+      "iou": 0.3,
+      "conf_source": "operating_point.json",
+      "max_det": 10,
+      "crop_margin": 0.1,
+      "mask_threshold": 0.5,
+      "min_mask_area_px": 50,
+      "segmenter_normalize": "imagenet",
+      "segmenter_grayscale": false,
+      "gate_min_probability": 0.0,
+      "head_class": "Brain"
+    },
+    "detector_conf_override": null,
+    "force_head": true,
+    "stand_in_models": [],
+    "models": {
+      "plane_classifier": {
+        "path": "/workspace/FetalVision/models/plane_classifier.onnx",
+        "exists": true,
+        "size_bytes": 3789634,
+        "sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/p1v2-mnv3s-partial-ft-e40.keras",
+        "meta_sha256": "09845b731f7926c7691960240c34eefa4d00180af0cbcf135b3babef5e8cd523"
+      },
+      "head_detector": {
+        "path": "/workspace/FetalVision/models/head_detector.onnx",
+        "exists": true,
+        "size_bytes": 10663466,
+        "sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/head_detector.pt",
+        "meta_sha256": "b9b4173bc1f0c0859218b34f1e1e0aa72bd8fd07c2613237229d17605887abc1"
+      },
+      "head_segmenter": {
+        "path": "/workspace/FetalVision/models/head_segmenter.onnx",
+        "exists": true,
+        "size_bytes": 26495329,
+        "sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092",
+        "stand_in": false,
+        "source": "/workspace/FetalVision/models/head_segmenter.pt",
+        "meta_sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092"
+      }
+    },
+    "manifest_id": "68985665657f",
+    "timer": "time.perf_counter, single process, sequential"
+  },
+  "acceptance": {
+    "ort_cpu": {
+      "pipeline_p95_le_1500ms": {
+        "metric": "full_pipeline.latency.p95_ms",
+        "op": "<=",
+        "value": 1500.0,
+        "actual": 51.98756453755777,
+        "passed": true
+      }
+    },
+    "ort_coreml": {
+      "pipeline_p95_le_1500ms": {
+        "metric": "full_pipeline.latency.p95_ms",
+        "op": "<=",
+        "value": 1500.0,
+        "actual": 21.39168122084811,
+        "passed": true
+      }
+    }
+  },
+  "stand_in_models": [],
+  "backends": [
+    "ort_cpu",
+    "ort_coreml",
+    "native"
+  ]
+}

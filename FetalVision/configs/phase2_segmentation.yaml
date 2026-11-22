@@ -1,0 +1,52 @@
+# Phase 2 – fetal-head segmentation (U-Net, MobileNetV2 encoder) + SAM zero-shot baseline + HC measurement
+run_name: segmentation
+phase: phase2
+seed: 42
+
+splits_csv: ${FETALVISION_DATA}/hc18/processed/splits.csv
+raw_dir: ${FETALVISION_DATA}/hc18/raw/training_set
+results_dir: results/phase2/segmentation
+sam_results_dir: results/phase2/segmentation_sam
+export_weights: models/head_segmenter.pt
+export_meta: models/head_segmenter.json
+detector_weights: models/head_detector.pt
+operating_point_json: results/phase2/detection/operating_point.json
+
+model:
+  arch: Unet
+  encoder: mobilenet_v2
+  encoder_weights: imagenet
+  in_channels: 3
+  classes: 1
+input_size: [512, 352]      # W x H (multiples of 32; keeps the 800x540 aspect within 1 %)
+original_size: [800, 540]   # W x H – ellipse axes are rescaled back to this before measuring HC
+
+train:
+  batch_size: 8
+  epochs: 40
+  max_train_minutes: 45
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  num_workers: 0
+  device: auto
+  amp: false
+  loss: dice_bce
+  threshold: 0.5
+augment:
+  hflip_p: 0.5
+  shift_limit: 0.05
+  scale_limit: 0.10
+  rotate_limit: 10
+  brightness_contrast_p: 0.5
+
+sam:
+  weights: mobile_sam.pt
+  device: cpu               # MobileSAM single-image prompting is faster on CPU than on MPS (measured 0.8 s vs 3.6 s)
+  splits: [val, test]
+  n_examples: 8
+
+evaluate:
+  threshold: 0.5
+  crop_margin: 0.10         # detector-box crop margin for the box-cropped U-Net chain
+  n_failures: 6
+  hc_tolerance_mm: 3.0

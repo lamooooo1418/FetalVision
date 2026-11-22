@@ -1,0 +1,79 @@
+{
+  "input_size_wh": [
+    512,
+    352
+  ],
+  "original_size_wh": [
+    800,
+    540
+  ],
+  "normalisation": "imagenet mean/std on grayscale replicated to 3 channels",
+  "threshold": 0.5,
+  "seed": 42,
+  "git_commit": "unknown",
+  "best_epoch": 13,
+  "best_val_dice": 0.9747277454241811,
+  "model_name": "head_segmenter",
+  "framework": "segmentation_models_pytorch",
+  "arch": "Unet",
+  "encoder": "mobilenet_v2",
+  "input_size": [
+    512,
+    352
+  ],
+  "input_size_order": "WH",
+  "normalize": "imagenet",
+  "stand_in": false,
+  "stand_in_kind": null,
+  "weights_format": "torch state_dict of smp.Unet (load with fetalvision.segmentation.model.load_checkpoint)",
+  "grayscale": false,
+  "normalisation_note": "imagenet mean/std on grayscale replicated to 3 channels",
+  "mask_threshold": 0.5,
+  "training_meta": {
+    "best_epoch": 13,
+    "best_val_dice": 0.9747277454241811,
+    "seed": 42,
+    "git_commit": "unknown",
+    "original_size_wh": [
+      800,
+      540
+    ]
+  },
+  "model": "head_segmenter",
+  "input_name": "image",
+  "output_name": "logits",
+  "input_layout": "NCHW RGB, [0,1] then ImageNet mean/std",
+  "output": "logits (apply sigmoid)",
+  "opset": 17,
+  "source_weights": "/workspace/FetalVision/models/head_segmenter.pt",
+  "source_sha256": "2c584eed460454897faaf5907ecbb53490323b4af54577f2f09db3b6d6c6fc7b",
+  "sha256": "66bb9dc2983d10b507cd02adb90c17554c45e7bfdc9887e1bac351715109c092",
+  "onnx_io": {
+    "inputs": [
+      {
+        "name": "image",
+        "shape": [
+          1,
+          3,
+          352,
+          512
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "logits",
+        "shape": [
+          1,
+          1,
+          352,
+          512
+        ]
+      }
+    ],
+    "opset": 17,
+    "ir_version": 8,
+    "n_nodes": 232
+  },
+  "self_parity_max_abs_diff": 1.049041748046875e-05
+}

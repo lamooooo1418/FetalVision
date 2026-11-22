@@ -1,0 +1,39 @@
+{
+  "run_name": "segmentation_train",
+  "phase": "phase2",
+  "split_evaluated": "val",
+  "input_resolution": [
+    512,
+    352
+  ],
+  "n_images": 149,
+  "seed": 42,
+  "git_commit": "unknown",
+  "created_utc": "2026-11-08T19:03:53+00:00",
+  "metrics": {
+    "best_val_dice": 0.9747277454241811,
+    "best_epoch": 13,
+    "final_epoch": {
+      "epoch": 40.0,
+      "train_loss": 0.049220759550045276,
+      "val_loss": 0.07340394960422265,
+      "val_dice": 0.9692919110292302,
+      "lr": 1e-05,
+      "epoch_seconds": 27.13552188873291
+    },
+    "n_params": 6628945
+  },
+  "device": "mps",
+  "amp": false,
+  "wall_clock_seconds": 1156.7739210128784,
+  "epochs_planned": 40,
+  "epochs_run": 40,
+  "epochs_reduced_for_time": false,
+  "mean_epoch_seconds": 28.88183601498604,
+  "weights": "models/head_segmenter.pt",
+  "meta": "models/head_segmenter.json",
+  "encoder": "mobilenet_v2",
+  "loss": "Dice + BCE",
+  "optimizer": "AdamW",
+  "lr": 0.001
+}

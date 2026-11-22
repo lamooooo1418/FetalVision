@@ -1,0 +1,61 @@
+{
+  "kind": "segmenter",
+  "onnx": "/workspace/FetalVision/models/head_segmenter.onnx",
+  "native": "/workspace/FetalVision/models/head_segmenter.pt",
+  "native_framework": "segmentation_models_pytorch / torch 2.15.0",
+  "images_dir": "/workspace/data/hc18/raw/parity_samples",
+  "n_images": 48,
+  "input_size_wh": [
+    512,
+    352
+  ],
+  "mask_threshold": 0.5,
+  "prob_max_abs_diff": 9.387731552124023e-06,
+  "prob_mean_max_abs_diff": 2.5791038448611894e-06,
+  "dice_min": 1.0,
+  "dice_mean": 1.0,
+  "latency_native": {
+    "p50_ms": 279.67277099378407,
+    "p95_ms": 295.38855670252815,
+    "mean_ms": 280.41431601983885
+  },
+  "latency_onnx": {
+    "p50_ms": 24.37487500719726,
+    "p95_ms": 40.88435055455192,
+    "mean_ms": 26.779549503165374
+  },
+  "providers": [
+    "CPUExecutionProvider"
+  ],
+  "stand_in": false,
+  "stand_in_kind": null,
+  "criteria": {
+    "dice_ge": 0.999
+  },
+  "passed": true,
+  "versions": {
+    "fetalvision": "2.0.0",
+    "numpy": "2.5.4",
+    "onnxruntime": "1.31.1",
+    "onnxruntime-gpu": null,
+    "onnx": "1.23.2",
+    "cv2": "5.0.0.93",
+    "torch": "2.15.0",
+    "tensorflow": "2.21.0",
+    "keras": "3.15.1",
+    "ultralytics": "8.4.208",
+    "segmentation_models_pytorch": "0.6.0",
+    "fastapi": "0.162.2",
+    "uvicorn": "0.54.0"
+  },
+  "hardware": {
+    "os": "Darwin 24.3.0",
+    "machine": "arm64",
+    "python": "3.12.6",
+    "cpu_model": "Apple M4 Pro",
+    "cpu_cores_logical": 14,
+    "ram_gb": 24.0,
+    "gpu": null,
+    "cpu_cores_physical": 14
+  }
+}
